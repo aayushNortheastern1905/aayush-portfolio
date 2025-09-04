@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, PenTool, Globe, Menu, X } from 'lucide-react';
 
 const Portfolio = () => {
@@ -8,8 +8,17 @@ const Portfolio = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [countersAnimated, setCountersAnimated] = useState(false);
+  const countersRef = useRef<HTMLDivElement>(null);
 
-  const roles = ['SOFTWARE ENGINEER','AI_ENTHUSIAST', 'INNOVATOR', 'WRITER'];
+  const roles = ['SOFTWARE ENGINEER','AI AGENT ARCHITECT', 'GENAI ENTHUSIAST', 'INNOVATOR', 'WRITER'];
+
+  const metrics = [
+    { value: '500+', label: 'Users Served', description: 'Active users on VeryDesi platform', animatedValue: 500, suffix: '+' },
+    { value: '40%', label: 'Performance Boost', description: 'Page load time reduction via Next.js migration', animatedValue: 40, suffix: '%' },
+    { value: '90%', label: 'Automation', description: 'Workflow efficiency improvement', animatedValue: 90, suffix: '%' },
+    { value: '25%', label: 'API Enhancement', description: 'Backend response time optimization', animatedValue: 25, suffix: '%' }
+  ];
 
   useEffect(() => {
     const currentText = roles[roleIndex];
@@ -40,12 +49,53 @@ const Portfolio = () => {
     return () => clearTimeout(timeout);
   }, [currentIndex, isDeleting, roleIndex, roles]);
 
-  const metrics = [
-    { value: '500+', label: 'Users Served', description: 'Active users on VeryDesi platform' },
-    { value: '40%', label: 'Performance Boost', description: 'Page load time reduction via Next.js migration' },
-    { value: '90%', label: 'Automation', description: 'Workflow efficiency improvement' },
-    { value: '25%', label: 'API Enhancement', description: 'Backend response time optimization' }
-  ];
+  // Counter animation effect
+  const animateCounters = () => {
+    if (countersAnimated) return;
+    
+    setCountersAnimated(true);
+    const counters = countersRef.current?.querySelectorAll('.counter');
+    
+    counters?.forEach((counter, index) => {
+      const target = metrics[index].animatedValue;
+      const suffix = metrics[index].suffix;
+      let current = 0;
+      const increment = target / 100;
+      const duration = 2000; // 2 seconds
+      const stepTime = duration / 100;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        if (counter instanceof HTMLElement) {
+          counter.textContent = Math.floor(current) + suffix;
+        }
+      }, stepTime);
+    });
+  };
+
+  // Intersection Observer for counter animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !countersAnimated) {
+            animateCounters();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (countersRef.current) {
+      observer.observe(countersRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [countersAnimated]);
 
   const projects = [
     {
@@ -224,10 +274,12 @@ const Portfolio = () => {
             </div>
             
             {/* Metrics */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-12 sm:pt-16 border-t border-gray-300">
+            <div ref={countersRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-12 sm:pt-16 border-t border-gray-300">
               {metrics.map((metric, index) => (
                 <div key={index} className="text-center space-y-2">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-black">{metric.value}</div>
+                  <div className="counter text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-black">
+                    0{metric.suffix}
+                  </div>
                   <div className="text-xs sm:text-sm text-gray-700 uppercase tracking-widest font-medium">{metric.label}</div>
                   <div className="text-xs text-gray-600 hidden sm:block">{metric.description}</div>
                 </div>
