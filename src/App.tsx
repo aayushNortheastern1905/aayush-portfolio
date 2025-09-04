@@ -274,7 +274,7 @@ const Portfolio = () => {
                 </p>
                 <p>
                   Recently completed software co-op at EmTech Care Labs, building HIPAA-compliant healthcare 
-                  automation systems and secure data pipelines while developing community platforms that serve 500+ users.
+                  automation systems and secure data pipelines while developing community platforms that serve 10k+ users.
                 </p>
                 <p>
                   Professional writer for The Huntington News and maintainer of a personal blog 
