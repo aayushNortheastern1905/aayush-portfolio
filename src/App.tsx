@@ -52,7 +52,7 @@ const Portfolio = () => {
       title: "VeryDesi.com",
       description: "Full-stack housing platform connecting South Asian students and immigrants across the U.S. Built with monorepo architecture featuring Google SSO authentication and interactive maps.",
       tech: ["Next.js", "React", "TypeScript", "AWS Lambda", "DynamoDB", "GraphQL", "Leaflet.js"],
-      impact: "500+ verified spaces, 50+ cities covered, 10K+ happy customers",
+      impact: "500+ verified spaces, 50+ cities covered, 300+ happy customers",
       live: "https://verydesi.com/",
       category: "Housing Community Platform",
       image: "/images/verydesi.jpg"
