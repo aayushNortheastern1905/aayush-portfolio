@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, PenTool, Globe } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, PenTool, Globe, Menu, X } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('');
@@ -7,6 +7,7 @@ const Portfolio = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const roles = ['SOFTWARE ENGINEER','AI_ENTHUSIAST', 'INNOVATOR', 'WRITER'];
 
@@ -143,14 +144,24 @@ const Portfolio = () => {
     }
   ];
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-white text-black relative" style={{ fontFamily: 'Monaco, "Courier New", monospace' }}>
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-300">
-        <div className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
-          <div className="text-2xl font-bold tracking-tight text-black">AAYUSH_SAWANT</div>
-          <div className="flex space-x-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6 flex justify-between items-center">
+          <div className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-black">AAYUSH_SAWANT</div>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex space-x-8 xl:space-x-12">
             {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
               <a 
                 key={item}
@@ -163,50 +174,76 @@ const Portfolio = () => {
               </a>
             ))}
           </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={toggleMobileMenu}
+            className="lg:hidden p-2"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-300">
+            <div className="px-4 py-6 space-y-4">
+              {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
+                <a 
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="block text-gray-700 hover:text-black transition-all duration-300 text-sm tracking-widest uppercase font-medium py-2"
+                  onClick={closeMobileMenu}
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-gray-50 to-white pt-32 pb-16">
-        <div className="max-w-6xl mx-auto px-8 text-center">
-          <div className="space-y-12">
-            <div className="space-y-8">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tighter leading-tight">
-                <span className="block text-gray-600 min-h-[1.2em]">
+      <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-gray-50 to-white pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 lg:pb-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+            <div className="space-y-6 sm:space-y-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-light tracking-tighter leading-tight">
+                <span className="block text-gray-600 min-h-[1.2em] break-words">
                   {currentRole}
                   <span className="animate-pulse ml-1 text-black">|</span>
                 </span>
               </h1>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed tracking-wide">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed tracking-wide">
                 Northeastern MS student graduating December 2025. Building scalable systems, 
                 AI platforms, and community-driven applications.
               </p>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
                 Healthcare Tech • Community Platforms • Generative AI • Professional Writer
               </p>
             </div>
             
             {/* Metrics */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 border-t border-gray-300">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-12 sm:pt-16 border-t border-gray-300">
               {metrics.map((metric, index) => (
                 <div key={index} className="text-center space-y-2">
-                  <div className="text-4xl font-bold tracking-tight text-black">{metric.value}</div>
-                  <div className="text-sm text-gray-700 uppercase tracking-widest font-medium">{metric.label}</div>
-                  <div className="text-xs text-gray-600">{metric.description}</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-black">{metric.value}</div>
+                  <div className="text-xs sm:text-sm text-gray-700 uppercase tracking-widest font-medium">{metric.label}</div>
+                  <div className="text-xs text-gray-600 hidden sm:block">{metric.description}</div>
                 </div>
               ))}
             </div>
 
-            <div className="flex justify-center space-x-6 pt-12">
+            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-8 sm:pt-12">
               <a 
                 href="#projects" 
-                className="px-12 py-4 border-2 border-black hover:bg-black hover:text-white transition-all duration-300 text-sm tracking-widest uppercase font-medium"
+                className="px-8 sm:px-12 py-3 sm:py-4 border-2 border-black hover:bg-black hover:text-white transition-all duration-300 text-xs sm:text-sm tracking-widest uppercase font-medium text-center"
               >
                 View_Projects
               </a>
               <a 
                 href="#contact" 
-                className="px-12 py-4 bg-black text-white hover:bg-gray-800 transition-all duration-300 text-sm tracking-widest uppercase font-medium"
+                className="px-8 sm:px-12 py-3 sm:py-4 bg-black text-white hover:bg-gray-800 transition-all duration-300 text-xs sm:text-sm tracking-widest uppercase font-medium text-center"
               >
                 Contact_Me
               </a>
@@ -214,18 +251,18 @@ const Portfolio = () => {
           </div>
         </div>
         
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-6 sm:bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
           <ChevronDown className="w-6 h-6 text-gray-600" />
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-32 bg-gray-50 scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="grid md:grid-cols-2 gap-20 items-start">
+      <section id="about" className="py-16 sm:py-24 lg:py-32 bg-gray-50 scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div>
-              <h2 className="text-5xl font-light mb-12 tracking-tighter text-black">ABOUT_ME</h2>
-              <div className="space-y-6 text-gray-800 leading-relaxed">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 tracking-tighter text-black">ABOUT_ME</h2>
+              <div className="space-y-4 sm:space-y-6 text-gray-800 leading-relaxed text-sm sm:text-base">
                 <p>
                   Northeastern Master's student graduating December 2025, with a unique blend 
                   of technical expertise and creative storytelling that drives meaningful innovation.
@@ -246,19 +283,19 @@ const Portfolio = () => {
                 </p>
               </div>
               
-              <div className="pt-12">
-                <h3 className="text-xl font-bold tracking-widest uppercase mb-8 text-black">Technical_Stack</h3>
+              <div className="pt-8 sm:pt-12">
+                <h3 className="text-lg sm:text-xl font-bold tracking-widest uppercase mb-6 sm:mb-8 text-black">Technical_Stack</h3>
                 <div className="space-y-6">
                   {skills.map((skillGroup) => (
                     <div key={skillGroup.category}>
-                      <div className="text-sm text-gray-700 uppercase tracking-widest mb-3 font-semibold">
+                      <div className="text-xs sm:text-sm text-gray-700 uppercase tracking-widest mb-3 font-semibold">
                         {skillGroup.category}
                       </div>
-                      <div className="flex flex-wrap gap-3">
+                      <div className="flex flex-wrap gap-2 sm:gap-3">
                         {skillGroup.items.map((skill) => (
                           <span 
                             key={skill}
-                            className="px-4 py-2 border border-gray-400 text-xs tracking-wide text-gray-800 hover:border-black hover:bg-black hover:text-white transition-all duration-200"
+                            className="px-3 sm:px-4 py-1 sm:py-2 border border-gray-400 text-xs tracking-wide text-gray-800 hover:border-black hover:bg-black hover:text-white transition-all duration-200"
                           >
                             {skill}
                           </span>
@@ -270,13 +307,13 @@ const Portfolio = () => {
               </div>
             </div>
 
-            <div className="space-y-8">
-              <div className="bg-white p-8 border border-gray-300 hover:border-black transition-all duration-300">
-                <div className="flex items-center space-x-4 mb-6">
-                  <Code className="w-6 h-6 text-black" />
-                  <span className="text-sm uppercase tracking-widest text-black font-semibold">Current_Focus</span>
+            <div className="space-y-6 sm:space-y-8">
+              <div className="bg-white p-6 sm:p-8 border border-gray-300 hover:border-black transition-all duration-300">
+                <div className="flex items-center space-x-4 mb-4 sm:mb-6">
+                  <Code className="w-5 sm:w-6 h-5 sm:h-6 text-black" />
+                  <span className="text-xs sm:text-sm uppercase tracking-widest text-black font-semibold">Current_Focus</span>
                 </div>
-                <div className="text-sm text-gray-800 space-y-2">
+                <div className="text-xs sm:text-sm text-gray-800 space-y-2">
                   <div>• Community platform scaling VeryDesi.com</div>
                   <div>• Exploring Agentic AI</div>
                   <div>• AI/ML music personalization</div>
@@ -284,12 +321,12 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              <div className="bg-white p-8 border border-gray-300 hover:border-black transition-all duration-300">
-                <div className="flex items-center space-x-4 mb-6">
-                  <PenTool className="w-6 h-6 text-black" />
-                  <span className="text-sm uppercase tracking-widest text-black font-semibold">Writing_Portfolio</span>
+              <div className="bg-white p-6 sm:p-8 border border-gray-300 hover:border-black transition-all duration-300">
+                <div className="flex items-center space-x-4 mb-4 sm:mb-6">
+                  <PenTool className="w-5 sm:w-6 h-5 sm:h-6 text-black" />
+                  <span className="text-xs sm:text-sm uppercase tracking-widest text-black font-semibold">Writing_Portfolio</span>
                 </div>
-                <div className="text-sm text-gray-800 space-y-2">
+                <div className="text-xs sm:text-sm text-gray-800 space-y-2">
                   <div>• The Huntington News contributor</div>
                   <div>• Personal blog on culture & tech</div>
                   <div>• Cross-cultural storytelling</div>
@@ -297,12 +334,12 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              <div className="bg-white p-8 border border-gray-300 hover:border-black transition-all duration-300">
-                <div className="flex items-center space-x-4 mb-6">
-                  <Globe className="w-6 h-6 text-black" />
-                  <span className="text-sm uppercase tracking-widest text-black font-semibold">Research_Impact</span>
+              <div className="bg-white p-6 sm:p-8 border border-gray-300 hover:border-black transition-all duration-300">
+                <div className="flex items-center space-x-4 mb-4 sm:mb-6">
+                  <Globe className="w-5 sm:w-6 h-5 sm:h-6 text-black" />
+                  <span className="text-xs sm:text-sm uppercase tracking-widest text-black font-semibold">Research_Impact</span>
                 </div>
-                <div className="text-sm text-gray-800 space-y-2">
+                <div className="text-xs sm:text-sm text-gray-800 space-y-2">
                   <div>• IEEE published research</div>
                   <div>• Voice-operated wheelchair systems</div>
                   <div>• Accessibility technology innovation</div>
@@ -315,31 +352,31 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 bg-white scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-5xl font-light mb-20 tracking-tighter text-center text-black">SELECTED_WORK</h2>
-          <div className="space-y-24">
+      <section id="projects" className="py-16 sm:py-24 lg:py-32 bg-white scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 tracking-tighter text-center text-black">SELECTED_WORK</h2>
+          <div className="space-y-16 sm:space-y-20 lg:space-y-24">
             {projects.map((project, index) => (
               <div 
                 key={project.title}
-                className="grid md:grid-cols-5 gap-12 items-center group"
+                className="grid lg:grid-cols-5 gap-8 sm:gap-12 items-start lg:items-center group"
               >
-                <div className="md:col-span-2 space-y-6">
+                <div className="lg:col-span-2 space-y-4 sm:space-y-6 order-2 lg:order-1">
                   <div className="text-xs text-gray-700 uppercase tracking-widest font-medium">{project.category}</div>
-                  <h3 className="text-3xl font-light tracking-tight text-black">{project.title}</h3>
-                  <p className="text-gray-800 leading-relaxed">{project.description}</p>
+                  <h3 className="text-2xl sm:text-3xl font-light tracking-tight text-black">{project.title}</h3>
+                  <p className="text-gray-800 leading-relaxed text-sm sm:text-base">{project.description}</p>
                   <div className="text-sm font-bold text-black">{project.impact}</div>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-3 py-1 text-xs border border-gray-400 text-gray-800 tracking-wide"
+                        className="px-2 sm:px-3 py-1 text-xs border border-gray-400 text-gray-800 tracking-wide"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <div className="flex space-x-6 pt-4">
+                  <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 pt-4">
                     <a 
                       href={project.live}
                       target="_blank"
@@ -355,7 +392,7 @@ const Portfolio = () => {
                     </span>
                   </div>
                 </div>
-                <div className="md:col-span-3">
+                <div className="lg:col-span-3 order-1 lg:order-2">
                   <div className="aspect-video bg-white border border-gray-300 group-hover:border-black transition-all duration-500 relative overflow-hidden">
                     <img 
                       src={project.image} 
@@ -372,20 +409,20 @@ const Portfolio = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-32 bg-gray-50 scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-8">
-          <h2 className="text-5xl font-light mb-20 tracking-tighter text-center text-black">EXPERIENCE</h2>
-          <div className="space-y-16">
+      <section id="experience" className="py-16 sm:py-24 lg:py-32 bg-gray-50 scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 tracking-tighter text-center text-black">EXPERIENCE</h2>
+          <div className="space-y-12 sm:space-y-16">
             {experience.map((job, index) => (
-              <div key={index} className="border-l-2 border-gray-400 pl-8 relative">
+              <div key={index} className="border-l-2 border-gray-400 pl-6 sm:pl-8 relative">
                 <div className="absolute -left-2 top-0 w-3 h-3 bg-black rounded-full"></div>
                 <div className="space-y-4">
-                  <div className="flex justify-between items-start">
+                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-2 lg:space-y-0">
                     <div>
-                      <h3 className="text-2xl font-light tracking-tight text-black">{job.company}</h3>
-                      <div className="text-lg text-gray-700">{job.role}</div>
+                      <h3 className="text-xl sm:text-2xl font-light tracking-tight text-black">{job.company}</h3>
+                      <div className="text-base sm:text-lg text-gray-700">{job.role}</div>
                     </div>
-                    <div className="text-right text-sm text-gray-700">
+                    <div className="text-left lg:text-right text-sm text-gray-700">
                       <div className="uppercase tracking-widest font-medium">{job.period}</div>
                       <div>{job.location}</div>
                     </div>
@@ -405,22 +442,22 @@ const Portfolio = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-32 bg-white scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-8">
-          <h2 className="text-5xl font-light mb-20 tracking-tighter text-center text-black">EDUCATION</h2>
-          <div className="grid md:grid-cols-2 gap-12">
+      <section id="education" className="py-16 sm:py-24 lg:py-32 bg-white scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 tracking-tighter text-center text-black">EDUCATION</h2>
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
             {education.map((edu, index) => (
-              <div key={index} className="bg-gray-50 p-8 border border-gray-300 hover:border-black transition-all duration-300">
-                <h3 className="text-xl font-light tracking-tight mb-2 text-black">{edu.institution}</h3>
-                <div className="text-lg text-gray-700 mb-4">{edu.degree}</div>
-                <div className="flex justify-between items-center mb-4 text-sm text-gray-700">
+              <div key={index} className="bg-gray-50 p-6 sm:p-8 border border-gray-300 hover:border-black transition-all duration-300">
+                <h3 className="text-lg sm:text-xl font-light tracking-tight mb-2 text-black">{edu.institution}</h3>
+                <div className="text-base sm:text-lg text-gray-700 mb-4">{edu.degree}</div>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 text-sm text-gray-700 space-y-1 sm:space-y-0">
                   <span className="uppercase tracking-widest font-medium">{edu.period}</span>
                   <span className="font-semibold">GPA: {edu.gpa}</span>
                 </div>
                 <div className="text-xs text-gray-600 mb-4 font-medium">{edu.location}</div>
                 <div className="space-y-1">
                   {edu.coursework.map((course) => (
-                    <div key={course} className="text-sm text-gray-800">• {course}</div>
+                    <div key={course} className="text-xs sm:text-sm text-gray-800">• {course}</div>
                   ))}
                 </div>
               </div>
@@ -430,13 +467,13 @@ const Portfolio = () => {
       </section>
 
       {/* Writing Section */}
-      <section id="writing" className="py-32 bg-gray-50 scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-8">
-          <h2 className="text-5xl font-light mb-20 tracking-tighter text-center text-black">WRITING_PORTFOLIO</h2>
-          <div className="grid md:grid-cols-2 gap-16">
+      <section id="writing" className="py-16 sm:py-24 lg:py-32 bg-gray-50 scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 tracking-tighter text-center text-black">WRITING_PORTFOLIO</h2>
+          <div className="grid md:grid-cols-2 gap-12 sm:gap-16">
             <div className="space-y-8">
-              <div className="bg-white border border-gray-300 p-8 hover:border-black transition-all duration-300">
-                <h3 className="text-xl font-light tracking-tight mb-4 text-black">The Huntington News</h3>
+              <div className="bg-white border border-gray-300 p-6 sm:p-8 hover:border-black transition-all duration-300">
+                <h3 className="text-lg sm:text-xl font-light tracking-tight mb-4 text-black">The Huntington News</h3>
                 <p className="text-gray-800 text-sm leading-relaxed mb-6">
                   Professional journalism covering campus life, culture, and technology at Northeastern University. 
                   Contributing articles and insights to the university's primary news publication.
@@ -453,8 +490,8 @@ const Portfolio = () => {
               </div>
             </div>
             <div className="space-y-8">
-              <div className="bg-white border border-gray-300 p-8 hover:border-black transition-all duration-300">
-                <h3 className="text-xl font-light tracking-tight mb-4 text-black">Personal Blog</h3>
+              <div className="bg-white border border-gray-300 p-6 sm:p-8 hover:border-black transition-all duration-300">
+                <h3 className="text-lg sm:text-xl font-light tracking-tight mb-4 text-black">Personal Blog</h3>
                 <p className="text-gray-800 text-sm leading-relaxed mb-6">
                   Technical insights and cultural commentary exploring connections between Indian cinema 
                   and American storytelling. Built with Jekyll, featuring both English and Marathi posts.
@@ -475,14 +512,14 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 bg-black text-white scroll-mt-24">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-5xl font-light mb-12 tracking-tighter">LET'S_CONNECT</h2>
-          <p className="text-gray-300 text-lg mb-16 max-w-2xl mx-auto leading-relaxed">
+      <section id="contact" className="py-16 sm:py-24 lg:py-32 bg-black text-white scroll-mt-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 tracking-tighter">LET'S_CONNECT</h2>
+          <p className="text-gray-300 text-base sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto leading-relaxed">
             Available for full-time opportunities starting December 2025. 
             Let's build something exceptional together.
           </p>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
             {[
               { 
                 icon: Mail, 
@@ -508,18 +545,18 @@ const Portfolio = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block"
+                className="group block sm:col-span-1 lg:col-span-1"
               >
-                <div className="border border-gray-600 p-8 hover:border-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
-                  <Icon className="w-8 h-8 mx-auto mb-4" />
+                <div className="border border-gray-600 p-6 sm:p-8 hover:border-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
+                  <Icon className="w-6 sm:w-8 h-6 sm:h-8 mx-auto mb-4" />
                   <div className="text-sm uppercase tracking-widest mb-2 font-medium">{label}</div>
-                  <div className="text-xs text-gray-300 group-hover:text-gray-700">{value}</div>
+                  <div className="text-xs text-gray-300 group-hover:text-gray-700 break-words">{value}</div>
                 </div>
               </a>
             ))}
           </div>
           
-          <div className="pt-16 text-sm text-gray-400 space-y-2">
+          <div className="pt-12 sm:pt-16 text-sm text-gray-400 space-y-2">
             <div className="uppercase tracking-widest font-medium">Phone</div>
             <div className="text-gray-300">+1 (551) 229-8798</div>
             <div className="pt-4 text-xs text-gray-400">
@@ -530,11 +567,11 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-gray-700 py-12">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="flex justify-between items-center text-gray-400 text-sm">
-            <div className="uppercase tracking-widest">© 2025 Aayush Rajendra Sawant</div>
-            <div className="uppercase tracking-widest">Northeastern University • MS Information Systems</div>
+      <footer className="bg-black border-t border-gray-700 py-8 sm:py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-xs sm:text-sm space-y-4 sm:space-y-0">
+            <div className="uppercase tracking-widest text-center sm:text-left">© 2025 Aayush Rajendra Sawant</div>
+            <div className="uppercase tracking-widest text-center sm:text-right">Northeastern University • MS Information Systems</div>
           </div>
         </div>
       </footer>
