@@ -264,11 +264,11 @@ const Portfolio = () => {
                   <span className="animate-pulse ml-1 text-black">|</span>
                 </span>
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed tracking-wide">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-900 max-w-3xl mx-auto leading-relaxed tracking-wide">
                 Northeastern MS student graduating December 2025. Building scalable systems, 
                 AI platforms, and community-driven applications.
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-800 max-w-2xl mx-auto">
                 Healthcare Tech • Community Platforms • Generative AI • Professional Writer
               </p>
             </div>
@@ -280,8 +280,8 @@ const Portfolio = () => {
                   <div className="counter text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-black">
                     0{metric.suffix}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-700 uppercase tracking-widest font-medium">{metric.label}</div>
-                  <div className="text-xs text-gray-600 hidden sm:block">{metric.description}</div>
+                  <div className="text-xs sm:text-sm text-gray-800 uppercase tracking-widest font-medium">{metric.label}</div>
+                  <div className="text-xs text-gray-700 hidden sm:block">{metric.description}</div>
                 </div>
               ))}
             </div>
@@ -314,7 +314,7 @@ const Portfolio = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 tracking-tighter text-black">ABOUT_ME</h2>
-              <div className="space-y-4 sm:space-y-6 text-gray-800 leading-relaxed text-sm sm:text-base">
+              <div className="space-y-4 sm:space-y-6 text-gray-900 leading-relaxed text-sm sm:text-base">
                 <p>
                   Northeastern Master's student graduating December 2025, with a unique blend 
                   of technical expertise and creative storytelling that drives meaningful innovation.
@@ -340,14 +340,14 @@ const Portfolio = () => {
                 <div className="space-y-6">
                   {skills.map((skillGroup) => (
                     <div key={skillGroup.category}>
-                      <div className="text-xs sm:text-sm text-gray-700 uppercase tracking-widest mb-3 font-semibold">
+                      <div className="text-xs sm:text-sm text-gray-800 uppercase tracking-widest mb-3 font-semibold">
                         {skillGroup.category}
                       </div>
                       <div className="flex flex-wrap gap-2 sm:gap-3">
                         {skillGroup.items.map((skill) => (
                           <span 
                             key={skill}
-                            className="px-3 sm:px-4 py-1 sm:py-2 border border-gray-400 text-xs tracking-wide text-gray-800 hover:border-black hover:bg-black hover:text-white transition-all duration-200"
+                            className="px-3 sm:px-4 py-1 sm:py-2 border border-gray-400 text-xs tracking-wide text-gray-900 hover:border-black hover:bg-black hover:text-white transition-all duration-200"
                           >
                             {skill}
                           </span>
@@ -365,7 +365,7 @@ const Portfolio = () => {
                   <Code className="w-5 sm:w-6 h-5 sm:h-6 text-black" />
                   <span className="text-xs sm:text-sm uppercase tracking-widest text-black font-semibold">Current_Focus</span>
                 </div>
-                <div className="text-xs sm:text-sm text-gray-800 space-y-2">
+                <div className="text-xs sm:text-sm text-gray-900 space-y-2">
                   <div>• Community platform scaling VeryDesi.com</div>
                   <div>• Exploring Agentic AI</div>
                   <div>• AI/ML music personalization</div>
@@ -378,7 +378,7 @@ const Portfolio = () => {
                   <PenTool className="w-5 sm:w-6 h-5 sm:h-6 text-black" />
                   <span className="text-xs sm:text-sm uppercase tracking-widest text-black font-semibold">Writing_Portfolio</span>
                 </div>
-                <div className="text-xs sm:text-sm text-gray-800 space-y-2">
+                <div className="text-xs sm:text-sm text-gray-900 space-y-2">
                   <div>• The Huntington News contributor</div>
                   <div>• Personal blog on culture & tech</div>
                   <div>• Cross-cultural storytelling</div>
@@ -391,7 +391,7 @@ const Portfolio = () => {
                   <Globe className="w-5 sm:w-6 h-5 sm:h-6 text-black" />
                   <span className="text-xs sm:text-sm uppercase tracking-widest text-black font-semibold">Research_Impact</span>
                 </div>
-                <div className="text-xs sm:text-sm text-gray-800 space-y-2">
+                <div className="text-xs sm:text-sm text-gray-900 space-y-2">
                   <div>• IEEE published research</div>
                   <div>• Voice-operated wheelchair systems</div>
                   <div>• Accessibility technology innovation</div>
@@ -416,13 +416,13 @@ const Portfolio = () => {
                 <div className="lg:col-span-2 space-y-4 sm:space-y-6 order-2 lg:order-1">
                   <div className="text-xs text-gray-700 uppercase tracking-widest font-medium">{project.category}</div>
                   <h3 className="text-2xl sm:text-3xl font-light tracking-tight text-black">{project.title}</h3>
-                  <p className="text-gray-800 leading-relaxed text-sm sm:text-base">{project.description}</p>
+                  <p className="text-gray-900 leading-relaxed text-sm sm:text-base">{project.description}</p>
                   <div className="text-sm font-bold text-black">{project.impact}</div>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-2 sm:px-3 py-1 text-xs border border-gray-400 text-gray-800 tracking-wide"
+                        className="px-2 sm:px-3 py-1 text-xs border border-gray-400 text-gray-900 tracking-wide"
                       >
                         {tech}
                       </span>
@@ -481,7 +481,7 @@ const Portfolio = () => {
                   </div>
                   <div className="space-y-2">
                     {job.highlights.map((highlight, i) => (
-                      <div key={i} className="text-gray-800 text-sm leading-relaxed">
+                      <div key={i} className="text-gray-900 text-sm leading-relaxed">
                         • {highlight}
                       </div>
                     ))}
@@ -509,7 +509,7 @@ const Portfolio = () => {
                 <div className="text-xs text-gray-600 mb-4 font-medium">{edu.location}</div>
                 <div className="space-y-1">
                   {edu.coursework.map((course) => (
-                    <div key={course} className="text-xs sm:text-sm text-gray-800">• {course}</div>
+                    <div key={course} className="text-xs sm:text-sm text-gray-900">• {course}</div>
                   ))}
                 </div>
               </div>
@@ -526,7 +526,7 @@ const Portfolio = () => {
             <div className="space-y-8">
               <div className="bg-white border border-gray-300 p-6 sm:p-8 hover:border-black transition-all duration-300">
                 <h3 className="text-lg sm:text-xl font-light tracking-tight mb-4 text-black">The Huntington News</h3>
-                <p className="text-gray-800 text-sm leading-relaxed mb-6">
+                <p className="text-gray-900 text-sm leading-relaxed mb-6">
                   Professional journalism covering campus life, culture, and technology at Northeastern University. 
                   Contributing articles and insights to the university's primary news publication.
                 </p>
@@ -544,7 +544,7 @@ const Portfolio = () => {
             <div className="space-y-8">
               <div className="bg-white border border-gray-300 p-6 sm:p-8 hover:border-black transition-all duration-300">
                 <h3 className="text-lg sm:text-xl font-light tracking-tight mb-4 text-black">Personal Blog</h3>
-                <p className="text-gray-800 text-sm leading-relaxed mb-6">
+                <p className="text-gray-900 text-sm leading-relaxed mb-6">
                   Technical insights and cultural commentary exploring connections between Indian cinema 
                   and American storytelling. Built with Jekyll, featuring both English and Marathi posts.
                 </p>
