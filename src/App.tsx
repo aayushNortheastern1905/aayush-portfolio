@@ -203,12 +203,16 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black relative" style={{ fontFamily: 'Monaco, "Courier New", monospace' }}>
+    <div className="min-h-screen bg-black text-white relative" style={{ 
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Display", Inter, system-ui, sans-serif',
+      backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)`,
+      backgroundSize: '20px 20px'
+    }}>
       
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-300">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6 flex justify-between items-center">
-          <div className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-black">AAYUSH_SAWANT</div>
+          <div className="text-lg sm:text-xl lg:text-2xl font-semibold tracking-tight text-white">Aayush Sawant</div>
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex space-x-8 xl:space-x-12">
@@ -216,7 +220,7 @@ const Portfolio = () => {
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-700 hover:text-black transition-all duration-300 text-sm tracking-widest uppercase font-medium"
+                className="text-gray-300 hover:text-white transition-all duration-300 text-sm font-medium"
                 onMouseEnter={() => setActiveSection(item)}
                 onMouseLeave={() => setActiveSection('')}
               >
@@ -228,7 +232,7 @@ const Portfolio = () => {
           {/* Mobile Menu Button */}
           <button 
             onClick={toggleMobileMenu}
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 text-gray-300 hover:text-white"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -236,13 +240,13 @@ const Portfolio = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-300">
+          <div className="lg:hidden bg-black border-t border-gray-800">
             <div className="px-4 py-6 space-y-4">
               {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
                 <a 
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block text-gray-700 hover:text-black transition-all duration-300 text-sm tracking-widest uppercase font-medium py-2"
+                  className="block text-gray-300 hover:text-white transition-all duration-300 text-sm font-medium py-2"
                   onClick={closeMobileMenu}
                 >
                   {item}
@@ -254,69 +258,70 @@ const Portfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-gray-50 to-white pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 lg:pb-16">
+      <section className="min-h-screen flex items-center justify-center relative bg-black pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 lg:pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
-            <div className="space-y-6 sm:space-y-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-light tracking-tighter leading-tight">
-                <span className="block text-gray-600 min-h-[1.2em] break-words">
+          <div className="space-y-12 sm:space-y-16 lg:space-y-20">
+            <div className="space-y-8 sm:space-y-10">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-tight text-white">
+                <span className="block text-gray-300 min-h-[1.2em] break-words" style={{ fontFamily: 'Monaco, "SF Mono", "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace' }}>
                   {currentRole}
-                  <span className="animate-pulse ml-1 text-black">|</span>
+                  <span className="animate-pulse ml-2 text-white">|</span>
                 </span>
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-900 max-w-3xl mx-auto leading-relaxed tracking-wide">
-                Northeastern MS student graduating December 2025. Building scalable systems, 
-                AI platforms, and community-driven applications.
-              </p>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-800 max-w-2xl mx-auto">
-                Healthcare Tech • Community Platforms • Generative AI • Professional Writer
-              </p>
+              <div className="space-y-6">
+                <p className="text-xl sm:text-2xl lg:text-3xl font-light text-white max-w-4xl mx-auto leading-relaxed">
+                  Northeastern MS student graduating December 2025
+                </p>
+                <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                  Building scalable systems, AI platforms, and community-driven applications that serve thousands of users worldwide
+                </p>
+              </div>
             </div>
             
             {/* Metrics */}
-            <div ref={countersRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-12 sm:pt-16 border-t border-gray-300">
+            <div ref={countersRef} className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 pt-16 sm:pt-20">
               {metrics.map((metric, index) => (
-                <div key={index} className="text-center space-y-2">
-                  <div className="counter text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-black">
+                <div key={index} className="text-center space-y-3">
+                  <div className="counter text-3xl sm:text-4xl lg:text-5xl font-light text-white">
                     0{metric.suffix}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-800 uppercase tracking-widest font-medium">{metric.label}</div>
-                  <div className="text-xs text-gray-700 hidden sm:block">{metric.description}</div>
+                  <div className="text-sm sm:text-base text-white font-medium">{metric.label}</div>
+                  <div className="text-xs sm:text-sm text-gray-400 hidden sm:block max-w-32 mx-auto leading-relaxed">{metric.description}</div>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-8 sm:pt-12">
+            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-12 sm:pt-16">
               <a 
                 href="#projects" 
-                className="px-8 sm:px-12 py-3 sm:py-4 border-2 border-black hover:bg-black hover:text-white transition-all duration-300 text-xs sm:text-sm tracking-widest uppercase font-medium text-center"
+                className="px-8 sm:px-10 py-3 sm:py-4 bg-white text-black hover:bg-gray-200 transition-all duration-300 text-sm font-medium rounded-lg text-center"
               >
-                View_Projects
+                View Projects
               </a>
               <a 
                 href="#contact" 
-                className="px-8 sm:px-12 py-3 sm:py-4 bg-black text-white hover:bg-gray-800 transition-all duration-300 text-xs sm:text-sm tracking-widest uppercase font-medium text-center"
+                className="px-8 sm:px-10 py-3 sm:py-4 border border-gray-700 text-white hover:border-gray-500 hover:bg-gray-900 transition-all duration-300 text-sm font-medium rounded-lg text-center"
               >
-                Contact_Me
+                Get in Touch
               </a>
             </div>
           </div>
         </div>
         
-        <div className="absolute bottom-6 sm:bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
-          <ChevronDown className="w-6 h-6 text-gray-600" />
+        <div className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
+          <ChevronDown className="w-5 h-5 text-gray-500" />
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 sm:py-24 lg:py-32 bg-gray-50 scroll-mt-24">
+      <section id="about" className="py-20 sm:py-28 lg:py-36 bg-gray-950 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 tracking-tighter text-black">ABOUT_ME</h2>
-              <div className="space-y-4 sm:space-y-6 text-gray-900 leading-relaxed text-sm sm:text-base">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 text-white">About</h2>
+              <div className="space-y-6 text-gray-300 leading-relaxed text-base sm:text-lg">
                 <p>
-                  Northeastern Master's student graduating December 2025, with a unique blend 
+                  I'm a Northeastern Master's student graduating December 2025, with a unique blend 
                   of technical expertise and creative storytelling that drives meaningful innovation.
                 </p>
                 <p>
@@ -335,19 +340,19 @@ const Portfolio = () => {
                 </p>
               </div>
               
-              <div className="pt-8 sm:pt-12">
-                <h3 className="text-lg sm:text-xl font-bold tracking-widest uppercase mb-6 sm:mb-8 text-black">Technical_Stack</h3>
-                <div className="space-y-6">
+              <div className="pt-12 sm:pt-16">
+                <h3 className="text-xl sm:text-2xl font-medium mb-8 text-white">Technical Stack</h3>
+                <div className="space-y-8">
                   {skills.map((skillGroup) => (
                     <div key={skillGroup.category}>
-                      <div className="text-xs sm:text-sm text-gray-800 uppercase tracking-widest mb-3 font-semibold">
+                      <div className="text-sm font-semibold text-white mb-4">
                         {skillGroup.category}
                       </div>
-                      <div className="flex flex-wrap gap-2 sm:gap-3">
+                      <div className="flex flex-wrap gap-3">
                         {skillGroup.items.map((skill) => (
                           <span 
                             key={skill}
-                            className="px-3 sm:px-4 py-1 sm:py-2 border border-gray-400 text-xs tracking-wide text-gray-900 hover:border-black hover:bg-black hover:text-white transition-all duration-200"
+                            className="px-4 py-2 bg-gray-900 text-sm text-gray-300 border border-gray-800 rounded-lg hover:border-gray-600 hover:bg-gray-800 transition-all duration-200"
                           >
                             {skill}
                           </span>
@@ -360,25 +365,29 @@ const Portfolio = () => {
             </div>
 
             <div className="space-y-6 sm:space-y-8">
-              <div className="bg-white p-6 sm:p-8 border border-gray-300 hover:border-black transition-all duration-300">
-                <div className="flex items-center space-x-4 mb-4 sm:mb-6">
-                  <Code className="w-5 sm:w-6 h-5 sm:h-6 text-black" />
-                  <span className="text-xs sm:text-sm uppercase tracking-widest text-black font-semibold">Current_Focus</span>
+              <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-all duration-300">
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                    <Code className="w-5 h-5 text-gray-400" />
+                  </div>
+                  <span className="text-base font-semibold text-white">Current Focus</span>
                 </div>
-                <div className="text-xs sm:text-sm text-gray-900 space-y-2">
+                <div className="text-sm text-gray-300 space-y-3 leading-relaxed">
                   <div>• Community platform scaling VeryDesi.com</div>
-                  <div>• Exploring Agentic AI</div>
+                  <div>• Exploring Agentic AI systems</div>
                   <div>• AI/ML music personalization</div>
                   <div>• AWS serverless architecture</div>
                 </div>
               </div>
 
-              <div className="bg-white p-6 sm:p-8 border border-gray-300 hover:border-black transition-all duration-300">
-                <div className="flex items-center space-x-4 mb-4 sm:mb-6">
-                  <PenTool className="w-5 sm:w-6 h-5 sm:h-6 text-black" />
-                  <span className="text-xs sm:text-sm uppercase tracking-widest text-black font-semibold">Writing_Portfolio</span>
+              <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-all duration-300">
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                    <PenTool className="w-5 h-5 text-gray-400" />
+                  </div>
+                  <span className="text-base font-semibold text-white">Writing Portfolio</span>
                 </div>
-                <div className="text-xs sm:text-sm text-gray-900 space-y-2">
+                <div className="text-sm text-gray-300 space-y-3 leading-relaxed">
                   <div>• The Huntington News contributor</div>
                   <div>• Personal blog on culture & tech</div>
                   <div>• Cross-cultural storytelling</div>
@@ -386,12 +395,14 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              <div className="bg-white p-6 sm:p-8 border border-gray-300 hover:border-black transition-all duration-300">
-                <div className="flex items-center space-x-4 mb-4 sm:mb-6">
-                  <Globe className="w-5 sm:w-6 h-5 sm:h-6 text-black" />
-                  <span className="text-xs sm:text-sm uppercase tracking-widest text-black font-semibold">Research_Impact</span>
+              <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-all duration-300">
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                    <Globe className="w-5 h-5 text-gray-400" />
+                  </div>
+                  <span className="text-base font-semibold text-white">Research Impact</span>
                 </div>
-                <div className="text-xs sm:text-sm text-gray-900 space-y-2">
+                <div className="text-sm text-gray-300 space-y-3 leading-relaxed">
                   <div>• IEEE published research</div>
                   <div>• Voice-operated wheelchair systems</div>
                   <div>• Accessibility technology innovation</div>
@@ -404,25 +415,25 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 sm:py-24 lg:py-32 bg-white scroll-mt-24">
+      <section id="projects" className="py-20 sm:py-28 lg:py-36 bg-black scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 tracking-tighter text-center text-black">SELECTED_WORK</h2>
-          <div className="space-y-16 sm:space-y-20 lg:space-y-24">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 lg:mb-24 text-center text-white">Selected Work</h2>
+          <div className="space-y-20 sm:space-y-28 lg:space-y-32">
             {projects.map((project, index) => (
               <div 
                 key={project.title}
-                className="grid lg:grid-cols-5 gap-8 sm:gap-12 items-start lg:items-center group"
+                className="grid lg:grid-cols-5 gap-12 sm:gap-16 items-start lg:items-center group"
               >
-                <div className="lg:col-span-2 space-y-4 sm:space-y-6 order-2 lg:order-1">
-                  <div className="text-xs text-gray-700 uppercase tracking-widest font-medium">{project.category}</div>
-                  <h3 className="text-2xl sm:text-3xl font-light tracking-tight text-black">{project.title}</h3>
-                  <p className="text-gray-900 leading-relaxed text-sm sm:text-base">{project.description}</p>
-                  <div className="text-sm font-bold text-black">{project.impact}</div>
+                <div className="lg:col-span-2 space-y-6 sm:space-y-8 order-2 lg:order-1">
+                  <div className="text-sm text-gray-400 font-medium">{project.category}</div>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white">{project.title}</h3>
+                  <p className="text-gray-300 leading-relaxed text-base sm:text-lg">{project.description}</p>
+                  <div className="text-base font-medium text-white">{project.impact}</div>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-2 sm:px-3 py-1 text-xs border border-gray-400 text-gray-900 tracking-wide"
+                        className="px-3 py-1 text-xs font-medium bg-gray-900 text-gray-300 border border-gray-800 rounded-full"
                       >
                         {tech}
                       </span>
@@ -433,25 +444,21 @@ const Portfolio = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-gray-700 hover:text-black transition-colors duration-200 flex items-center space-x-2 uppercase tracking-wide font-medium"
+                      className="inline-flex items-center space-x-2 text-sm font-medium text-white hover:text-gray-300 transition-colors duration-200"
                     >
+                      <span>View Live Site</span>
                       <ExternalLink className="w-4 h-4" />
-                      <span>Live_Site</span>
                     </a>
-                    <span className="text-sm text-gray-600 flex items-center space-x-2 uppercase tracking-wide">
-                      <Code className="w-4 h-4" />
-                      <span>Proprietary</span>
-                    </span>
                   </div>
                 </div>
                 <div className="lg:col-span-3 order-1 lg:order-2">
-                  <div className="aspect-video bg-white border border-gray-300 group-hover:border-black transition-all duration-500 relative overflow-hidden">
+                  <div className="aspect-video bg-gray-900 border border-gray-800 rounded-xl group-hover:border-gray-600 transition-all duration-500 relative overflow-hidden">
                     <img 
                       src={project.image} 
                       alt={`${project.title} screenshot`}
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover object-top rounded-xl"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-transparent group-hover:from-black/15 transition-all duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent group-hover:from-black/30 transition-all duration-500 rounded-xl" />
                   </div>
                 </div>
               </div>
@@ -461,28 +468,28 @@ const Portfolio = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 sm:py-24 lg:py-32 bg-gray-50 scroll-mt-24">
+      <section id="experience" className="py-20 sm:py-28 lg:py-36 bg-gray-950 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 tracking-tighter text-center text-black">EXPERIENCE</h2>
-          <div className="space-y-12 sm:space-y-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 text-center text-white">Experience</h2>
+          <div className="space-y-16 sm:space-y-20">
             {experience.map((job, index) => (
-              <div key={index} className="border-l-2 border-gray-400 pl-6 sm:pl-8 relative">
-                <div className="absolute -left-2 top-0 w-3 h-3 bg-black rounded-full"></div>
-                <div className="space-y-4">
-                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-2 lg:space-y-0">
+              <div key={index} className="relative">
+                <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 sm:p-10 hover:border-gray-600 transition-all duration-300">
+                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0 mb-6">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-light tracking-tight text-black">{job.company}</h3>
-                      <div className="text-base sm:text-lg text-gray-700">{job.role}</div>
+                      <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">{job.company}</h3>
+                      <div className="text-base sm:text-lg text-gray-300">{job.role}</div>
                     </div>
-                    <div className="text-left lg:text-right text-sm text-gray-700">
-                      <div className="uppercase tracking-widest font-medium">{job.period}</div>
+                    <div className="text-left lg:text-right text-sm text-gray-400">
+                      <div className="font-medium mb-1">{job.period}</div>
                       <div>{job.location}</div>
                     </div>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {job.highlights.map((highlight, i) => (
-                      <div key={i} className="text-gray-900 text-sm leading-relaxed">
-                        • {highlight}
+                      <div key={i} className="text-gray-300 text-base leading-relaxed flex">
+                        <span className="text-gray-500 mr-3">•</span>
+                        <span>{highlight}</span>
                       </div>
                     ))}
                   </div>
@@ -494,22 +501,25 @@ const Portfolio = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-16 sm:py-24 lg:py-32 bg-white scroll-mt-24">
+      <section id="education" className="py-20 sm:py-28 lg:py-36 bg-black scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 tracking-tighter text-center text-black">EDUCATION</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 text-center text-white">Education</h2>
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
             {education.map((edu, index) => (
-              <div key={index} className="bg-gray-50 p-6 sm:p-8 border border-gray-300 hover:border-black transition-all duration-300">
-                <h3 className="text-lg sm:text-xl font-light tracking-tight mb-2 text-black">{edu.institution}</h3>
-                <div className="text-base sm:text-lg text-gray-700 mb-4">{edu.degree}</div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 text-sm text-gray-700 space-y-1 sm:space-y-0">
-                  <span className="uppercase tracking-widest font-medium">{edu.period}</span>
-                  <span className="font-semibold">GPA: {edu.gpa}</span>
+              <div key={index} className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-all duration-300">
+                <h3 className="text-lg sm:text-xl font-medium mb-2 text-white">{edu.institution}</h3>
+                <div className="text-base sm:text-lg text-gray-300 mb-4">{edu.degree}</div>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 text-sm text-gray-400 space-y-2 sm:space-y-0">
+                  <span className="font-medium">{edu.period}</span>
+                  <span className="font-medium">GPA: {edu.gpa}</span>
                 </div>
-                <div className="text-xs text-gray-600 mb-4 font-medium">{edu.location}</div>
-                <div className="space-y-1">
+                <div className="text-xs text-gray-500 mb-6 font-medium">{edu.location}</div>
+                <div className="space-y-2">
                   {edu.coursework.map((course) => (
-                    <div key={course} className="text-xs sm:text-sm text-gray-900">• {course}</div>
+                    <div key={course} className="text-sm text-gray-300 flex">
+                      <span className="text-gray-500 mr-3">•</span>
+                      <span>{course}</span>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -519,14 +529,14 @@ const Portfolio = () => {
       </section>
 
       {/* Writing Section */}
-      <section id="writing" className="py-16 sm:py-24 lg:py-32 bg-gray-50 scroll-mt-24">
+      <section id="writing" className="py-20 sm:py-28 lg:py-36 bg-gray-950 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 tracking-tighter text-center text-black">WRITING_PORTFOLIO</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-16 sm:mb-20 text-center text-white">Writing Portfolio</h2>
           <div className="grid md:grid-cols-2 gap-12 sm:gap-16">
             <div className="space-y-8">
-              <div className="bg-white border border-gray-300 p-6 sm:p-8 hover:border-black transition-all duration-300">
-                <h3 className="text-lg sm:text-xl font-light tracking-tight mb-4 text-black">The Huntington News</h3>
-                <p className="text-gray-900 text-sm leading-relaxed mb-6">
+              <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-all duration-300">
+                <h3 className="text-lg sm:text-xl font-medium mb-4 text-white">The Huntington News</h3>
+                <p className="text-gray-300 text-base leading-relaxed mb-6">
                   Professional journalism covering campus life, culture, and technology at Northeastern University. 
                   Contributing articles and insights to the university's primary news publication.
                 </p>
@@ -534,17 +544,17 @@ const Portfolio = () => {
                   href="https://huntnewsnu.com/staff_name/aayush-sawant/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-700 hover:text-black transition-colors flex items-center space-x-2 uppercase tracking-wide font-medium"
+                  className="inline-flex items-center space-x-2 text-sm font-medium text-white hover:text-gray-300 transition-colors"
                 >
-                  <span>Read_Articles</span>
+                  <span>Read Articles</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
             </div>
             <div className="space-y-8">
-              <div className="bg-white border border-gray-300 p-6 sm:p-8 hover:border-black transition-all duration-300">
-                <h3 className="text-lg sm:text-xl font-light tracking-tight mb-4 text-black">Personal Blog</h3>
-                <p className="text-gray-900 text-sm leading-relaxed mb-6">
+              <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-all duration-300">
+                <h3 className="text-lg sm:text-xl font-medium mb-4 text-white">Personal Blog</h3>
+                <p className="text-gray-300 text-base leading-relaxed mb-6">
                   Technical insights and cultural commentary exploring connections between Indian cinema 
                   and American storytelling. Built with Jekyll, featuring both English and Marathi posts.
                 </p>
@@ -552,9 +562,9 @@ const Portfolio = () => {
                   href="https://aayushnortheastern1905.github.io/aayushWrites/blog.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-700 hover:text-black transition-colors flex items-center space-x-2 uppercase tracking-wide font-medium"
+                  className="inline-flex items-center space-x-2 text-sm font-medium text-white hover:text-gray-300 transition-colors"
                 >
-                  <span>Visit_Blog</span>
+                  <span>Visit Blog</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
@@ -564,14 +574,14 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-24 lg:py-32 bg-black text-white scroll-mt-24">
+      <section id="contact" className="py-20 sm:py-28 lg:py-36 bg-black scroll-mt-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 tracking-tighter">LET'S_CONNECT</h2>
-          <p className="text-gray-300 text-base sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 text-white">Let's Connect</h2>
+          <p className="text-gray-400 text-lg sm:text-xl mb-12 sm:mb-16 max-w-2xl mx-auto leading-relaxed">
             Available for full-time opportunities starting December 2025. 
             Let's build something exceptional together.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+          <div className="grid sm:grid-cols-3 gap-8 sm:gap-6">
             {[
               { 
                 icon: Mail, 
@@ -597,21 +607,21 @@ const Portfolio = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block sm:col-span-1 lg:col-span-1"
+                className="group block"
               >
-                <div className="border border-gray-600 p-6 sm:p-8 hover:border-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
-                  <Icon className="w-6 sm:w-8 h-6 sm:h-8 mx-auto mb-4" />
-                  <div className="text-sm uppercase tracking-widest mb-2 font-medium">{label}</div>
-                  <div className="text-xs text-gray-300 group-hover:text-gray-700 break-words">{value}</div>
+                <div className="border border-gray-800 rounded-xl p-8 hover:border-gray-600 hover:bg-gray-900 transition-all duration-300">
+                  <Icon className="w-8 h-8 mx-auto mb-4 text-gray-400 group-hover:text-white" />
+                  <div className="text-sm font-medium mb-2 text-gray-300 group-hover:text-white">{label}</div>
+                  <div className="text-xs text-gray-500 break-words">{value}</div>
                 </div>
               </a>
             ))}
           </div>
           
-          <div className="pt-12 sm:pt-16 text-sm text-gray-400 space-y-2">
-            <div className="uppercase tracking-widest font-medium">Phone</div>
-            <div className="text-gray-300">+1 (551) 229-8798</div>
-            <div className="pt-4 text-xs text-gray-400">
+          <div className="pt-16 sm:pt-20 text-base text-gray-400 space-y-3">
+            <div className="font-medium text-gray-300">Phone</div>
+            <div>+1 (551) 229-8798</div>
+            <div className="pt-4 text-sm text-gray-500">
               Available for full-time roles • Graduating December 2025
             </div>
           </div>
@@ -619,11 +629,11 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-gray-700 py-8 sm:py-12">
+      <footer className="bg-black border-t border-gray-800 py-8 sm:py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-xs sm:text-sm space-y-4 sm:space-y-0">
-            <div className="uppercase tracking-widest text-center sm:text-left">© 2025 Aayush Rajendra Sawant</div>
-            <div className="uppercase tracking-widest text-center sm:text-right">Northeastern University • MS Information Systems</div>
+          <div className="flex flex-col sm:flex-row justify-between items-center text-gray-500 text-sm space-y-4 sm:space-y-0">
+            <div className="text-center sm:text-left">© 2025 Aayush Rajendra Sawant</div>
+            <div className="text-center sm:text-right">Northeastern University • MS Information Systems</div>
           </div>
         </div>
       </footer>
