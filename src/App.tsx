@@ -108,6 +108,15 @@ const Portfolio = () => {
       image: "/images/verydesi.jpg"
     },
     {
+      title: "Campus Connect",
+      description: "Java Spring Boot backend with RESTful APIs and MySQL database for multi-tenant student housing platform serving 5 stakeholder types. Implemented JDBC connection pooling and prepared statements to handle concurrent database operations.",
+      tech: ["Java", "Spring Boot", "MySQL", "JUnit", "REST APIs", "Git", "JDBC"],
+      impact: "35% query time reduction, 75% test coverage with JUnit/Mockito, MVC architecture with DAO pattern",
+      live: "https://github.com/aayushNortheastern1905/Application-engg-projects/tree/main/final-project-campus-connect-main/final-project-campus-connect-main",
+      category: "Student Housing Platform",
+      image: "/images/campusconnect.jpg"
+    },
+    {
       title: "Self-App",
       description: "Stealth startup project involving React to Next.js migration of 20+ components and GraphQL API optimization with Django backend.",
       tech: ["Next.js", "React", "TypeScript", "GraphQL", "Django", "Google Analytics"],
@@ -134,11 +143,10 @@ const Portfolio = () => {
       period: "Jan 2025 - June 2025",
       location: "Portland, ME",
       highlights: [
-        "Developed end-to-end Zoom integration with React/TypeScript reducing admin overhead by 30%",
-        "Built Care Priorities feature automating task approvals and cutting workflow time significantly",
-        "Automated Medicaid data ingestion using AWS pipeline eliminating 90% of manual updates",
-        "Created financial budgeting calculator streamlining caregiver planning workflows",
-        "Built Medicaid eligibility calculator determining copays and PACE qualification"
+        "Developed Zoom integration with React/TypeScript/AWS Lambda for automated meeting scheduling, recordings, and transcripts, boosting counseling efficiency by 25%",
+        "Built Care Priorities feature with React/TypeScript/AWS Lambda, automating task approvals and cutting admin overhead by 30%",
+        "Automated Medicaid data pipeline using AWS (Lambda/Step Functions/S3/DynamoDB) and Python, eliminating 90% of manual updates",
+        "Created financial and Medicaid eligibility calculators with React/TypeScript/Recharts for caregiver planning and PACE qualification"
       ]
     },
     {
@@ -158,17 +166,17 @@ const Portfolio = () => {
       period: "Aug 2021 - Aug 2023", 
       location: "Pune, India",
       highlights: [
-        "Led development of 15+ React.js modules reducing UI-related bugs by 30%",
-        "Implemented secure OAuth 2.0/JWT authentication reducing session vulnerabilities by 30%",
-        "Architected containerized microservices with Docker/Kubernetes boosting deployment velocity by 40%",
-        "Achieved 90% test coverage with Cypress.io/Jest reducing production bugs by 25%"
+        "Led development of 15+ React.js modules through full SDLC, decreasing UI-related bugs by 30% and improving dashboard usability",
+        "Implemented secure OAuth 2.0/JWT authentication across RESTful APIs, reducing session vulnerabilities by 30% in multi-environment systems",
+        "Architected containerized microservices with Docker/Kubernetes (EKS) on AWS, boosting deployment velocity and infrastructure resilience by 40%",
+        "Achieved 90% test coverage with Cypress.io/Jest, reducing production bugs by 25% and strengthening CI/CD pipeline reliability"
       ]
     }
   ];
 
   const skills = [
     { category: "Frontend", items: ["React.js", "Next.js", "TypeScript", "JavaScript", "Leaflet.js", "Recharts"] },
-    { category: "Backend", items: ["Node.js", "GraphQL", "Django", "Express.js", "AWS Lambda"] },
+    { category: "Backend", items: ["Node.js", "GraphQL", "Django", "Express.js", "AWS Lambda", "Spring Boot"] },
     { category: "Cloud & DevOps", items: ["AWS", "Docker", "Kubernetes", "Jenkins", "AWS S3", "DynamoDB"] },
     { category: "Databases", items: ["PostgreSQL", "MongoDB", "Firebase", "Elasticsearch", "MySQL"] },
     { category: "AI/ML", items: ["PyTorch", "TensorFlow", "NLP", "GANs", "NumPy", "Pandas"] },
