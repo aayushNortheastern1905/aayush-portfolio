@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, PenTool, Globe, Menu, X } from 'lucide-react';
 
 const Portfolio = () => {
-  const [activeSection, setActiveSection] = useState('');
+  // Removed unused activeSection
   const [currentRole, setCurrentRole] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [countersAnimated, setCountersAnimated] = useState(false);
-  const countersRef = useRef<HTMLDivElement>(null);
+  const countersRef = useRef<HTMLDivElement | null>(null);
 
-  const roles = ['SOFTWARE ENGINEER', 'FULL-STACK DEVELOPER', 'AI ENTHUSIAST', 'INNOVATOR', 'WRITER'];
+  // Wrapped roles in useMemo to prevent re-creation
+  const roles = useMemo(() => ['SOFTWARE ENGINEER', 'FULL-STACK DEVELOPER', 'AI ENTHUSIAST', 'INNOVATOR', 'WRITER'], []);
 
   const metrics = [
     { value: '300+', label: 'Users Served', description: 'Active users on VeryDesi platform', animatedValue: 300, suffix: '+' },
@@ -45,13 +46,14 @@ const Portfolio = () => {
     return () => clearTimeout(timeout);
   }, [currentIndex, isDeleting, roleIndex, roles]);
 
-  const animateCounters = () => {
+  // Wrapped in useCallback to fix dependency issue
+  const animateCounters = useCallback(() => {
     if (countersAnimated) return;
     
     setCountersAnimated(true);
     const counters = countersRef.current?.querySelectorAll('.counter');
     
-    counters?.forEach((counter, index) => {
+    counters?.forEach((counter: Element, index: number) => {
       const target = metrics[index].animatedValue;
       const suffix = metrics[index].suffix;
       let current = 0;
@@ -70,7 +72,7 @@ const Portfolio = () => {
         }
       }, stepTime);
     });
-  };
+  }, [countersAnimated]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -89,7 +91,7 @@ const Portfolio = () => {
     }
 
     return () => observer.disconnect();
-  }, [countersAnimated]);
+  }, [countersAnimated, animateCounters]);
 
 const projects = [
     {
@@ -255,8 +257,6 @@ const projects = [
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 className="text-gray-300 hover:text-white transition-all duration-300 text-sm font-medium"
-                onMouseEnter={() => setActiveSection(item)}
-                onMouseLeave={() => setActiveSection('')}
               >
                 {item}
               </a>
