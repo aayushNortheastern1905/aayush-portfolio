@@ -240,7 +240,7 @@ const projects = [
       backgroundSize: '20px 20px'
     }}>
       
-      {/* Navigation */}
+      {/* Navigation - UPDATED WITH WRITING */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6 flex justify-between items-center">
           <button 
@@ -250,9 +250,9 @@ const projects = [
             Aayush Sawant
           </button>
           
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - UPDATED */}
           <div className="hidden lg:flex space-x-8 xl:space-x-12">
-            {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
+            {['About', 'Projects', 'Experience', 'Writing', 'Contact'].map((item) => (
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -272,11 +272,11 @@ const projects = [
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - UPDATED */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-black border-t border-gray-800">
             <div className="px-4 py-6 space-y-4">
-              {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
+              {['About', 'Projects', 'Experience', 'Writing', 'Contact'].map((item) => (
                 <a 
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -572,7 +572,7 @@ const projects = [
                 <h3 className="text-lg sm:text-xl font-medium mb-4 text-white">The Huntington News</h3>
                 <p className="text-gray-300 text-base leading-relaxed mb-6">
                   Staff writer covering campus life, culture, and technology at Northeastern University.
-                  Contributing articles and insights to the university's primary news publication since January 2025.
+                  Contributing articles and insights to the university's primary news publication since September 2024.
                 </p>
                 <a 
                   href="https://huntnewsnu.com/staff_name/aayush-sawant/"
