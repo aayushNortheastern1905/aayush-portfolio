@@ -11,13 +11,13 @@ const Portfolio = () => {
   const [countersAnimated, setCountersAnimated] = useState(false);
   const countersRef = useRef<HTMLDivElement>(null);
 
-  const roles = ['SOFTWARE ENGINEER','AI AGENT ARCHITECT', 'GENAI ENTHUSIAST', 'INNOVATOR', 'WRITER'];
+  const roles = ['SOFTWARE ENGINEER', 'FULL-STACK DEVELOPER', 'AI ENTHUSIAST', 'INNOVATOR', 'WRITER'];
 
   const metrics = [
-    { value: '500+', label: 'Users Served', description: 'Active users on VeryDesi platform', animatedValue: 500, suffix: '+' },
-    { value: '40%', label: 'Performance Boost', description: 'Page load time reduction via Next.js migration', animatedValue: 40, suffix: '%' },
-    { value: '90%', label: 'Automation', description: 'Workflow efficiency improvement', animatedValue: 90, suffix: '%' },
-    { value: '25%', label: 'API Enhancement', description: 'Backend response time optimization', animatedValue: 25, suffix: '%' }
+    { value: '300+', label: 'Users Served', description: 'Active users on VeryDesi platform', animatedValue: 300, suffix: '+' },
+    { value: '95%', label: 'Security Enhancement', description: 'Vulnerability reduction at eQ', animatedValue: 95, suffix: '%' },
+    { value: '90%', label: 'Automation', description: 'Manual process elimination at EmTech', animatedValue: 90, suffix: '%' },
+    { value: '5K+', label: 'Daily API Requests', description: 'Handled at production scale', animatedValue: 5000, suffix: '+' }
   ];
 
   useEffect(() => {
@@ -25,21 +25,17 @@ const Portfolio = () => {
     
     const timeout = setTimeout(() => {
       if (!isDeleting) {
-        // Typing
         if (currentIndex < currentText.length) {
           setCurrentRole(currentText.slice(0, currentIndex + 1));
           setCurrentIndex(currentIndex + 1);
         } else {
-          // Finished typing, wait then start deleting
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
-        // Deleting
         if (currentIndex > 0) {
           setCurrentRole(currentText.slice(0, currentIndex - 1));
           setCurrentIndex(currentIndex - 1);
         } else {
-          // Finished deleting, move to next role
           setIsDeleting(false);
           setRoleIndex((roleIndex + 1) % roles.length);
         }
@@ -49,7 +45,6 @@ const Portfolio = () => {
     return () => clearTimeout(timeout);
   }, [currentIndex, isDeleting, roleIndex, roles]);
 
-  // Counter animation effect
   const animateCounters = () => {
     if (countersAnimated) return;
     
@@ -61,7 +56,7 @@ const Portfolio = () => {
       const suffix = metrics[index].suffix;
       let current = 0;
       const increment = target / 100;
-      const duration = 2000; // 2 seconds
+      const duration = 2000;
       const stepTime = duration / 100;
       
       const timer = setInterval(() => {
@@ -77,7 +72,6 @@ const Portfolio = () => {
     });
   };
 
-  // Intersection Observer for counter animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -97,28 +91,40 @@ const Portfolio = () => {
     return () => observer.disconnect();
   }, [countersAnimated]);
 
-  const projects = [
+const projects = [
+    {
+      title: "DocuPal",
+      description: (
+        <>
+          AI immigration assistant with <strong>document processing agent</strong> using <strong>React/TypeScript</strong> and <strong>AWS Lambda</strong>, automating complex F-1/OPT/H-1B visa workflows and documentation processes.
+        </>
+      ),
+      tech: ["React.js", "TypeScript", "AWS SAM", "Auth0", "Gemini AI", "DynamoDB"],
+      impact: "Automated visa documentation with AI-powered form parsing and secure authentication",
+      live: "https://docupal-one.vercel.app/",
+      category: "AI Immigration Platform",
+      image: "/images/docupal.jpeg"
+    },
     {
       title: "VeryDesi.com",
-      description: "Full-stack housing platform connecting South Asian students and immigrants across the U.S. Built with monorepo architecture featuring Google SSO authentication and interactive maps.",
-      tech: ["Next.js", "React", "TypeScript", "AWS Lambda", "DynamoDB", "GraphQL", "Leaflet.js"],
-      impact: "500+ verified spaces, 50+ cities covered, 300+ happy customers",
+      description: (
+        <>
+          Full-stack housing platform with <strong>Google/Apple SSO</strong> and <strong>AWS Lambda</strong> in monorepo architecture. Features <strong>location-based search</strong> with <strong>Leaflet.js maps</strong> and <strong>GraphQL APIs</strong>.
+        </>
+      ),
+      tech: ["Next.js", "React.js", "TypeScript", "Leaflet.js", "AWS Lambda", "DynamoDB", "GraphQL"],
+      impact: "300+ active users across United States, featured events system with 25% engagement increase",
       live: "https://verydesi.com/",
       category: "Housing Community Platform",
       image: "/images/verydesi.jpg"
     },
     {
-      title: "Campus Connect",
-      description: "Java Spring Boot backend with RESTful APIs and MySQL database for multi-tenant student housing platform serving 5 stakeholder types. Implemented JDBC connection pooling and prepared statements to handle concurrent database operations.",
-      tech: ["Java", "Spring Boot", "MySQL", "JUnit", "REST APIs", "Git", "JDBC"],
-      impact: "35% query time reduction, 75% test coverage with JUnit/Mockito, MVC architecture with DAO pattern",
-      live: "https://github.com/aayushNortheastern1905/Application-engg-projects/tree/main/final-project-campus-connect-main/final-project-campus-connect-main",
-      category: "Student Housing Platform",
-      image: "/images/campusconnect.jpg"
-    },
-    {
       title: "Self-App",
-      description: "Stealth startup project involving React to Next.js migration of 20+ components and GraphQL API optimization with Django backend.",
+      description: (
+        <>
+          Stealth startup project involving <strong>React</strong> to <strong>Next.js</strong> migration of 20+ components and <strong>GraphQL API</strong> optimization with <strong>Django</strong> backend.
+        </>
+      ),
       tech: ["Next.js", "React", "TypeScript", "GraphQL", "Django", "Google Analytics"],
       impact: "40% page load reduction, 25% feature adoption increase, 25% API response improvement",
       live: "https://www.self-app.com/",
@@ -127,88 +133,103 @@ const Portfolio = () => {
     },
     {
       title: "SonomaticAI",
-      description: "AI-powered music creation platform with revolutionary interface. Built personalization engine using PyTorch, TensorFlow, NLP, and GAN models.",
+      description: (
+        <>
+          AI-powered music creation platform with revolutionary interface. Built personalization engine using <strong>PyTorch</strong>, <strong>TensorFlow</strong>, <strong>NLP</strong>, and <strong>GAN</strong> models.
+        </>
+      ),
       tech: ["React", "TypeScript", "PyTorch", "TensorFlow", "AWS S3", "NLP", "GANs"],
       impact: "40% user engagement increase, 30% development speed boost, optimized music storage",
       live: "https://www.sonomatic.ai/",
-      category: "GenAI Platform for creating Music!",
+      category: "GenAI Platform for Music Creation",
       image: "/images/sonomaticAI.jpg"
+    },
+    {
+      title: "House of Kicks",
+      description: (
+        <>
+          Full-stack e-commerce platform for sneaker enthusiasts featuring <strong>investment tracking</strong>, historical price analytics, and <strong>secure payment processing</strong>. Built with role-based authentication for admin dashboard and user portfolio management.
+        </>
+      ),
+      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT Auth", "Stripe API", "Chart.js"],
+      impact: "Complete sneaker marketplace with investment ROI tracking, admin analytics dashboard, and secure checkout flow",
+      live: "https://github.com/aayushNortheastern1905/House-of-Kicks",
+      category: "E-Commerce Platform",
+      image: "/images/houseofkicks.jpg"
+    },
+    {
+      title: "Campus Connect",
+      description: (
+        <>
+          <strong>Java Spring Boot</strong> backend with <strong>RESTful APIs</strong> and <strong>MySQL</strong> database for multi-tenant student housing platform serving 5 stakeholder types. Implemented <strong>JDBC</strong> connection pooling and prepared statements to handle concurrent database operations.
+        </>
+      ),
+      tech: ["Java", "Spring Boot", "MySQL", "JUnit", "REST APIs", "Git", "JDBC"],
+      impact: "35% query time reduction, 75% test coverage with JUnit/Mockito, MVC architecture with DAO pattern",
+      live: "https://github.com/aayushNortheastern1905/Application-engg-projects/tree/main/final-project-campus-connect-main/final-project-campus-connect-main",
+      category: "Student Housing Platform",
+      image: "/images/campusconnect.jpg"
     }
   ];
 
+  // UPDATED EXPERIENCE - Matching Resume Exactly
   const experience = [
     {
       company: "EmTech Care Labs",
       role: "Software Engineer Intern",
-      period: "Jan 2025 - June 2025",
+      period: "January 2025 - June 2025",
       location: "Portland, ME",
       highlights: [
-        "Developed Zoom integration with React/TypeScript/AWS Lambda for automated meeting scheduling, recordings, and transcripts, boosting counseling efficiency by 25%",
-        "Built Care Priorities feature with React/TypeScript/AWS Lambda, automating task approvals and cutting admin overhead by 30%",
-        "Automated Medicaid data pipeline using AWS (Lambda/Step Functions/S3/DynamoDB) and Python, eliminating 90% of manual updates",
-        "Created financial and Medicaid eligibility calculators with React/TypeScript/Recharts for caregiver planning and PACE qualification"
-      ]
-    },
-    {
-      company: "Stealth Startup",
-      role: "Software Contributor",
-      period: "Jul 2024 - Oct 2024",
-      location: "NYC Metro Area • Remote",
-      highlights: [
-        "Spearheaded migration of 20+ React components to Next.js achieving 40% page load reduction",
-        "Integrated Google Analytics with custom event tracking resulting in 25% feature adoption increase",
-        "Developed optimized GraphQL APIs using Django enhancing backend response times by 25%"
+        <>Developed Zoom integration with <strong>React/TypeScript/AWS Lambda</strong> for automated meeting scheduling, recordings, and transcripts, significantly boosting counseling efficiency by <strong>25%</strong></>,
+        <>Built Care Priorities feature with <strong>React/TypeScript/AWS Lambda</strong>, automating task approvals and cutting admin operational overhead by <strong>30%</strong> through intelligent workflow automation</>,
+        <>Automated <strong>HIPAA-compliant</strong> Medicaid data pipeline using <strong>AWS (Lambda/Step Functions/S3/DynamoDB)</strong> and <strong>Python</strong>, successfully eliminating <strong>90%</strong> of manual updates and reducing processing time</>,
+        <>Developed CareWallet v1 mobile app using <strong>React Native</strong>, implementing core healthcare tracking features serving <strong>100+</strong> beta users with secure health monitoring capabilities</>
       ]
     },
     {
       company: "eQ Technologic",
       role: "Software Engineer",
-      period: "Aug 2021 - Aug 2023", 
+      period: "August 2021 - August 2023", 
       location: "Pune, India",
       highlights: [
-        "Led development of 15+ React.js modules through full SDLC, decreasing UI-related bugs by 30% and improving dashboard usability",
-        "Implemented secure OAuth 2.0/JWT authentication across RESTful APIs, reducing session vulnerabilities by 30% in multi-environment systems",
-        "Architected containerized microservices with Docker/Kubernetes (EKS) on AWS, boosting deployment velocity and infrastructure resilience by 40%",
-        "Achieved 90% test coverage with Cypress.io/Jest, reducing production bugs by 25% and strengthening CI/CD pipeline reliability"
+        <>Developed <strong>Spring Boot RESTful APIs</strong> for infrastructure management supporting <strong>Docker/K8s</strong>, <strong>Tomcat/JBoss</strong>, and <strong>MySQL/Oracle</strong> databases, successfully handling <strong>5K+ daily requests</strong></>,
+        <>Implemented <strong>OAuth 2.0/JWT authentication</strong> with <strong>Spring Security</strong>, reducing critical security vulnerabilities by <strong>95%</strong> for multiple <strong>Fortune 500 clients</strong> including Lockheed Martin</>,
+        <>Built <strong>15+ React.js modules</strong> with <strong>Redux state management</strong>, decreasing UI bugs by <strong>30%</strong> through comprehensive component testing and modular architecture design patterns</>,
+        <>Architected <strong>Redux-based help system</strong> mapping users to relevant documentation dynamically, reducing customer support queries by <strong>35%</strong> and improving user self-service capabilities</>,
+        <>Achieved <strong>90% test coverage</strong> using <strong>JUnit</strong> for backend services and <strong>Jest/Cypress</strong> for frontend components, reducing production bugs by <strong>40%</strong> and deployment rollback frequency</>
       ]
     }
   ];
 
+  // UPDATED SKILLS - Matching Resume Exactly (Java, Python, JavaScript order)
   const skills = [
-    { category: "Frontend", items: ["React.js", "Next.js", "TypeScript", "JavaScript", "Leaflet.js", "Recharts"] },
-    { category: "Backend", items: ["Node.js", "GraphQL", "Django", "Express.js", "AWS Lambda", "Spring Boot"] },
-    { category: "Cloud & DevOps", items: ["AWS", "Docker", "Kubernetes", "Jenkins", "AWS S3", "DynamoDB"] },
-    { category: "Databases", items: ["PostgreSQL", "MongoDB", "Firebase", "Elasticsearch", "MySQL"] },
-    { category: "AI/ML", items: ["PyTorch", "TensorFlow", "NLP", "GANs", "NumPy", "Pandas"] },
-    { category: "Testing", items: ["Jest", "Playwright", "Cypress.io", "Selenium", "JUnit"] }
+    { category: "Languages", items: ["JavaScript", "TypeScript", "Python", "Java", "Ruby", "C/C++", "MATLAB"] },
+    { category: "Frontend", items: ["React.js", "React Native", "Next.js", "Redux", "TypeScript", "Leaflet.js"] },
+    { category: "Backend", items: ["Node.js", "Express.js", "Spring Boot", "Django", "FastAPI", "GraphQL", "AWS Lambda"] },
+    { category: "Cloud & DevOps", items: ["AWS (Lambda, S3, EKS, Cognito)", "Docker", "Kubernetes", "Jenkins"] },
+    { category: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB", "DynamoDB"] },
+    { category: "Testing/Tools", items: ["Jest", "Cypress", "Selenium", "Git", "Google Analytics", "Posthog"] }
   ];
 
+  // UPDATED EDUCATION - Matching Resume Exactly
   const education = [
     {
       institution: "Northeastern University",
       degree: "Master of Science in Information Systems",
-      period: "Sep 2023 - Dec 2025",
+      period: "September 2023 - December 2025",
       location: "Boston, MA",
       gpa: "3.7",
-      coursework: ["Full Stack Web Development", "Object Oriented Design", "Cloud Computing", "Data Analysis"]
+      coursework: ["Full Stack Engineering", "Object Oriented Design", "Cloud Computing", "Agentic AI"]
     },
     {
-      institution: "COEP Technological University",
-      degree: "Bachelor of Technology in Electronics and Telecommunications",
-      period: "Aug 2017 - May 2021",
+      institution: "COEP Technological University, Pune",
+      degree: "Bachelor of Technology in Electronics and Telecommunications Engineering",
+      period: "August 2017 - May 2021",
       location: "Pune, India", 
       gpa: "3.2",
-      coursework: ["Data Structures and Algorithms", "Operating Systems", "Computer Architecture"]
+      coursework: ["Data Structures and Algorithms", "Operating Systems", "Computer Architecture", "Computer Networks"]
     }
   ];
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
 
   return (
     <div className="min-h-screen bg-black text-white relative" style={{ 
@@ -220,7 +241,12 @@ const Portfolio = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6 flex justify-between items-center">
-          <div className="text-lg sm:text-xl lg:text-2xl font-semibold tracking-tight text-white">Aayush Sawant</div>
+          <button 
+            onClick={() => window.location.reload()}
+            className="text-lg sm:text-xl lg:text-2xl font-semibold tracking-tight text-white hover:text-gray-300 transition-colors cursor-pointer"
+          >
+            Aayush Sawant
+          </button>
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex space-x-8 xl:space-x-12">
@@ -239,7 +265,7 @@ const Portfolio = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            onClick={toggleMobileMenu}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 text-gray-300 hover:text-white"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -255,7 +281,7 @@ const Portfolio = () => {
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   className="block text-gray-300 hover:text-white transition-all duration-300 text-sm font-medium py-2"
-                  onClick={closeMobileMenu}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item}
                 </a>
@@ -329,21 +355,21 @@ const Portfolio = () => {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 text-white">About</h2>
               <div className="space-y-6 text-gray-300 leading-relaxed text-base sm:text-lg">
                 <p>
-                  I'm a Northeastern Master's student graduating December 2025, with a unique blend 
-                  of technical expertise and creative storytelling that drives meaningful innovation.
+                  I'm a Northeastern Master's student graduating December 2025, with 3+ years of experience
+                  building scalable systems and a unique blend of technical expertise and creative storytelling.
                 </p>
                 <p>
-                  My journey began at COEP India with IEEE research on voice-operated wheelchairs, 
-                  leading to full-time development at eQ Technologic building deployment systems 
-                  for Lockheed Martin and Rolls Royce.
+                  My journey began with IEEE research on voice-operated wheelchairs at COEP India,
+                  leading to full-time development at eQ Technologic where I built Spring Boot APIs and React modules
+                  for Fortune 500 clients including Lockheed Martin.
                 </p>
                 <p>
-                  Recently completed software co-op at EmTech Care Labs, building HIPAA-compliant healthcare 
-                  automation systems and secure data pipelines while developing community platforms that serve 10k+ users.
+                  Currently completing my software engineering internship at EmTech Care Labs, building HIPAA-compliant healthcare
+                  automation systems and secure data pipelines while developing community platforms serving hundreds of users.
                 </p>
                 <p>
-                  Professional writer for The Huntington News and maintainer of a personal blog 
-                  exploring connections between Indian cinema and American storytelling, bringing 
+                  Professional writer for The Huntington News and maintainer of a personal blog
+                  exploring connections between Indian cinema and American storytelling, bringing
                   global perspective to technical teams.
                 </p>
               </div>
@@ -381,9 +407,9 @@ const Portfolio = () => {
                   <span className="text-base font-semibold text-white">Current Focus</span>
                 </div>
                 <div className="text-sm text-gray-300 space-y-3 leading-relaxed">
-                  <div>• Community platform scaling VeryDesi.com</div>
+                  <div>• Building AI immigration assistant DocuPal</div>
+                  <div>• Scaling VeryDesi.com community platform</div>
                   <div>• Exploring Agentic AI systems</div>
-                  <div>• AI/ML music personalization</div>
                   <div>• AWS serverless architecture</div>
                 </div>
               </div>
@@ -396,7 +422,7 @@ const Portfolio = () => {
                   <span className="text-base font-semibold text-white">Writing Portfolio</span>
                 </div>
                 <div className="text-sm text-gray-300 space-y-3 leading-relaxed">
-                  <div>• The Huntington News contributor</div>
+                  <div>• The Huntington News staff writer</div>
                   <div>• Personal blog on culture & tech</div>
                   <div>• Cross-cultural storytelling</div>
                   <div>• Technical documentation</div>
@@ -408,13 +434,13 @@ const Portfolio = () => {
                   <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
                     <Globe className="w-5 h-5 text-gray-400" />
                   </div>
-                  <span className="text-base font-semibold text-white">Research Impact</span>
+                  <span className="text-base font-semibold text-white">Research & Impact</span>
                 </div>
                 <div className="text-sm text-gray-300 space-y-3 leading-relaxed">
-                  <div>• IEEE published research</div>
-                  <div>• Voice-operated wheelchair systems</div>
+                  <div>• IEEE published research (2021)</div>
+                  <div>• Voice-controlled wheelchair systems</div>
+                  <div>• Healthcare compliance (HIPAA)</div>
                   <div>• Accessibility technology innovation</div>
-                  <div>• Healthcare compliance systems</div>
                 </div>
               </div>
             </div>
@@ -454,7 +480,7 @@ const Portfolio = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center space-x-2 text-sm font-medium text-white hover:text-gray-300 transition-colors duration-200"
                     >
-                      <span>View Live Site</span>
+                      <span>View {project.live.includes('github') ? 'GitHub' : 'Live Site'}</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
@@ -545,8 +571,8 @@ const Portfolio = () => {
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-all duration-300">
                 <h3 className="text-lg sm:text-xl font-medium mb-4 text-white">The Huntington News</h3>
                 <p className="text-gray-300 text-base leading-relaxed mb-6">
-                  Professional journalism covering campus life, culture, and technology at Northeastern University. 
-                  Contributing articles and insights to the university's primary news publication.
+                  Staff writer covering campus life, culture, and technology at Northeastern University.
+                  Contributing articles and insights to the university's primary news publication since January 2025.
                 </p>
                 <a 
                   href="https://huntnewsnu.com/staff_name/aayush-sawant/"
@@ -561,18 +587,18 @@ const Portfolio = () => {
             </div>
             <div className="space-y-8">
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-all duration-300">
-                <h3 className="text-lg sm:text-xl font-medium mb-4 text-white">Personal Blog</h3>
+                <h3 className="text-lg sm:text-xl font-medium mb-4 text-white">IEEE Publication</h3>
                 <p className="text-gray-300 text-base leading-relaxed mb-6">
-                  Technical insights and cultural commentary exploring connections between Indian cinema 
-                  and American storytelling. Built with Jekyll, featuring both English and Marathi posts.
+                  Published research on Voice-Controlled Wheelchair systems in August 2021.
+                  Focused on accessibility technology and improving mobility for individuals with disabilities.
                 </p>
                 <a 
-                  href="https://aayushnortheastern1905.github.io/aayushWrites/blog.html"
+                  href="https://ieeexplore.ieee.org/document/9587859"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 text-sm font-medium text-white hover:text-gray-300 transition-colors"
                 >
-                  <span>Visit Blog</span>
+                  <span>View Publication</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
@@ -586,7 +612,7 @@ const Portfolio = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 text-white">Let's Connect</h2>
           <p className="text-gray-400 text-lg sm:text-xl mb-12 sm:mb-16 max-w-2xl mx-auto leading-relaxed">
-            Available for full-time opportunities starting December 2025. 
+            Available for full-time opportunities starting December 2025.
             Let's build something exceptional together.
           </p>
           <div className="grid sm:grid-cols-3 gap-8 sm:gap-6">
