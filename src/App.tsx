@@ -93,7 +93,8 @@ const Portfolio = () => {
     return () => observer.disconnect();
   }, [countersAnimated, animateCounters]);
 
-const projects = [
+  // UPDATED PROJECTS - Removed VeryDesi and Self-App
+  const projects = [
     {
       title: "DocuPal",
       description: (
@@ -106,32 +107,6 @@ const projects = [
       live: "https://docupal-one.vercel.app/",
       category: "AI Immigration Platform",
       image: "/images/docupal.jpeg"
-    },
-    {
-      title: "VeryDesi.com",
-      description: (
-        <>
-          Full-stack housing platform with <strong>Google/Apple SSO</strong> and <strong>AWS Lambda</strong> in monorepo architecture. Features <strong>location-based search</strong> with <strong>Leaflet.js maps</strong> and <strong>GraphQL APIs</strong>.
-        </>
-      ),
-      tech: ["Next.js", "React.js", "TypeScript", "Leaflet.js", "AWS Lambda", "DynamoDB", "GraphQL"],
-      impact: "300+ active users across United States, featured events system with 25% engagement increase",
-      live: "https://verydesi.com/",
-      category: "Housing Community Platform",
-      image: "/images/verydesi.jpg"
-    },
-    {
-      title: "Self-App",
-      description: (
-        <>
-          Stealth startup project involving <strong>React</strong> to <strong>Next.js</strong> migration of 20+ components and <strong>GraphQL API</strong> optimization with <strong>Django</strong> backend.
-        </>
-      ),
-      tech: ["Next.js", "React", "TypeScript", "GraphQL", "Django", "Google Analytics"],
-      impact: "40% page load reduction, 25% feature adoption increase, 25% API response improvement",
-      live: "https://www.self-app.com/",
-      category: "Mental Health Platform",
-      image: "/images/selfapp.jpg"
     },
     {
       title: "SonomaticAI",
@@ -174,7 +149,7 @@ const projects = [
     }
   ];
 
-  // UPDATED EXPERIENCE - Matching Resume Exactly
+  // UPDATED EXPERIENCE - Added VeryDesi and Self-App
   const experience = [
     {
       company: "EmTech Care Labs",
@@ -186,6 +161,32 @@ const projects = [
         <>Built Care Priorities feature with <strong>React/TypeScript/AWS Lambda</strong>, automating task approvals and cutting admin operational overhead by <strong>30%</strong> through intelligent workflow automation</>,
         <>Automated <strong>HIPAA-compliant</strong> Medicaid data pipeline using <strong>AWS (Lambda/Step Functions/S3/DynamoDB)</strong> and <strong>Python</strong>, successfully eliminating <strong>90%</strong> of manual updates and reducing processing time</>,
         <>Developed CareWallet v1 mobile app using <strong>React Native</strong>, implementing core healthcare tracking features serving <strong>100+</strong> beta users with secure health monitoring capabilities</>
+      ]
+    },
+    {
+      company: "VeryDesi.com",
+      role: "Early Software Engineer (Freelance)",
+      period: "Oct 2024 - Jan 2025",
+      location: "Remote (US)",
+      liveLink: "https://verydesi.com/",
+      highlights: [
+        <>Built full-stack housing platform with <strong>Google/Apple SSO</strong> and <strong>AWS Lambda</strong> in monorepo architecture, serving <strong>300+ active users</strong> across United States</>,
+        <>Implemented <strong>location-based search</strong> with <strong>Leaflet.js maps</strong> and <strong>GraphQL APIs</strong>, increasing user engagement by <strong>25%</strong> through enhanced discovery features</>,
+        <>Developed featured events system with automated notifications using <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>DynamoDB</strong>, driving community engagement</>,
+        <>Created scalable infrastructure handling <strong>5K+ daily API requests</strong> with serverless architecture and optimized database queries</>
+      ]
+    },
+    {
+      company: "Self-App (Stealth Startup)",
+      role: "Software Engineer(Freelance)",
+      period: "September 2024 - November 2024",
+      location: "Remote (US)",
+      liveLink: "https://www.self-app.com/",
+      highlights: [
+        <>Migrated <strong>20+ React components</strong> to <strong>Next.js</strong> framework, achieving <strong>40% page load reduction</strong> and improved SEO performance</>,
+        <>Optimized <strong>GraphQL API</strong> integration with <strong>Django</strong> backend, resulting in <strong>25% API response improvement</strong> and reduced server load</>,
+        <>Implemented analytics tracking with <strong>Google Analytics</strong> and user behavior monitoring, increasing feature adoption by <strong>25%</strong></>,
+        <>Enhanced mental health platform serving thousands of users with improved performance and user experience</>
       ]
     },
     {
@@ -511,7 +512,19 @@ const projects = [
                 <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 sm:p-10 hover:border-gray-600 transition-all duration-300">
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0 mb-6">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">{job.company}</h3>
+                      <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">
+                        {job.company}
+                        {job.liveLink && (
+                          <a 
+                            href={job.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center ml-3 text-sm font-medium text-gray-400 hover:text-white transition-colors"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        )}
+                      </h3>
                       <div className="text-base sm:text-lg text-gray-300">{job.role}</div>
                     </div>
                     <div className="text-left lg:text-right text-sm text-gray-400">
