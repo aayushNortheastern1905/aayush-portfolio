@@ -165,9 +165,9 @@ const Portfolio = () => {
     },
     {
       company: "VeryDesi.com",
-      role: "Early Software Engineer (Freelance)",
-      period: "Oct 2024 - Jan 2025",
-      location: "Remote (US)",
+      role: "Founder & Full-Stack Developer",
+      period: "May 2024 - Present",
+      location: "Boston, MA",
       liveLink: "https://verydesi.com/",
       highlights: [
         <>Built full-stack housing platform with <strong>Google/Apple SSO</strong> and <strong>AWS Lambda</strong> in monorepo architecture, serving <strong>300+ active users</strong> across United States</>,
@@ -178,9 +178,9 @@ const Portfolio = () => {
     },
     {
       company: "Self-App (Stealth Startup)",
-      role: "Software Engineer(Freelance)",
+      role: "Software Engineering Contractor",
       period: "September 2024 - November 2024",
-      location: "Remote (US)",
+      location: "Remote",
       liveLink: "https://www.self-app.com/",
       highlights: [
         <>Migrated <strong>20+ React components</strong> to <strong>Next.js</strong> framework, achieving <strong>40% page load reduction</strong> and improved SEO performance</>,
@@ -253,10 +253,12 @@ const Portfolio = () => {
           
           {/* Desktop Navigation - UPDATED */}
           <div className="hidden lg:flex space-x-8 xl:space-x-12">
-            {['About', 'Projects', 'Experience', 'Writing', 'Contact'].map((item) => (
+            {['About', 'Projects', 'Experience', 'Writing', 'Blog', 'Contact'].map((item) => (
               <a 
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={item === 'Blog' ? 'https://aayushnortheastern1905.github.io/aayushWrites/blog.html' : `#${item.toLowerCase()}`}
+                target={item === 'Blog' ? '_blank' : undefined}
+                rel={item === 'Blog' ? 'noopener noreferrer' : undefined}
                 className="text-gray-300 hover:text-white transition-all duration-300 text-sm font-medium"
               >
                 {item}
@@ -277,10 +279,12 @@ const Portfolio = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-black border-t border-gray-800">
             <div className="px-4 py-6 space-y-4">
-              {['About', 'Projects', 'Experience', 'Writing', 'Contact'].map((item) => (
+              {['About', 'Projects', 'Experience', 'Writing', 'Blog', 'Contact'].map((item) => (
                 <a 
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={item === 'Blog' ? 'https://aayushnortheastern1905.github.io/aayushWrites/blog.html' : `#${item.toLowerCase()}`}
+                  target={item === 'Blog' ? '_blank' : undefined}
+                  rel={item === 'Blog' ? 'noopener noreferrer' : undefined}
                   className="block text-gray-300 hover:text-white transition-all duration-300 text-sm font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
