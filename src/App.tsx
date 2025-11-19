@@ -166,7 +166,7 @@ const Portfolio = () => {
     {
       company: "VeryDesi.com",
       role: "Founder & Full-Stack Developer",
-      period: "May 2024 - Present",
+      period: "May 2024 - January 2025",
       location: "Boston, MA",
       liveLink: "https://verydesi.com/",
       highlights: [
