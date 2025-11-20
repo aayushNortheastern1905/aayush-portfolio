@@ -166,8 +166,8 @@ const Portfolio = () => {
     {
       company: "VeryDesi.com",
       role: "Founder & Full-Stack Developer",
-      period: "May 2024 - January 2025",
-      location: "Boston, MA",
+      period: "October 2024 - January 2025",
+      location: "Portland, OR (Remote)",
       liveLink: "https://verydesi.com/",
       highlights: [
         <>Built full-stack housing platform with <strong>Google/Apple SSO</strong> and <strong>AWS Lambda</strong> in monorepo architecture, serving <strong>300+ active users</strong> across United States</>,
@@ -179,8 +179,8 @@ const Portfolio = () => {
     {
       company: "Self-App (Stealth Startup)",
       role: "Software Engineering Contractor",
-      period: "September 2024 - November 2024",
-      location: "Remote",
+      period: "August 2024 - October 2024",
+      location: "New York City, NY (Remote)",
       liveLink: "https://www.self-app.com/",
       highlights: [
         <>Migrated <strong>20+ React components</strong> to <strong>Next.js</strong> framework, achieving <strong>40% page load reduction</strong> and improved SEO performance</>,
