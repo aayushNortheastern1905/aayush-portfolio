@@ -12,7 +12,7 @@ const Portfolio = () => {
   const countersRef = useRef<HTMLDivElement | null>(null);
 
   // Wrapped roles in useMemo to prevent re-creation
-  const roles = useMemo(() => ['SOFTWARE ENGINEER', 'FULL-STACK DEVELOPER', 'AI ENTHUSIAST', 'INNOVATOR', 'WRITER'], []);
+  const roles = useMemo(() => ['SOFTWARE ENGINEER', 'AI ENTHUSIAST', 'INNOVATOR', 'WRITER'], []);
 
   const metrics = [
     { value: '300+', label: 'Users Served', description: 'Active users on VeryDesi platform', animatedValue: 300, suffix: '+' },
@@ -156,6 +156,7 @@ const Portfolio = () => {
       role: "Software Engineer Intern",
       period: "January 2025 - June 2025",
       location: "Portland, ME",
+      liveLink:"https://emtechcarelabs.com/",
       highlights: [
         <>Developed Zoom integration with <strong>React/TypeScript/AWS Lambda</strong> for automated meeting scheduling, recordings, and transcripts, significantly boosting counseling efficiency by <strong>25%</strong></>,
         <>Built Care Priorities feature with <strong>React/TypeScript/AWS Lambda</strong>, automating task approvals and cutting admin operational overhead by <strong>30%</strong> through intelligent workflow automation</>,
@@ -163,37 +164,38 @@ const Portfolio = () => {
         <>Developed CareWallet v1 mobile app using <strong>React Native</strong>, implementing core healthcare tracking features serving <strong>100+</strong> beta users with secure health monitoring capabilities</>
       ]
     },
-    {
-      company: "VeryDesi.com",
-      role: "Founder & Full-Stack Developer",
-      period: "October 2024 - January 2025",
-      location: "Portland, OR (Remote)",
-      liveLink: "https://verydesi.com/",
-      highlights: [
-        <>Built full-stack housing platform with <strong>Google/Apple SSO</strong> and <strong>AWS Lambda</strong> in monorepo architecture, serving <strong>300+ active users</strong> across United States</>,
-        <>Implemented <strong>location-based search</strong> with <strong>Leaflet.js maps</strong> and <strong>GraphQL APIs</strong>, increasing user engagement by <strong>25%</strong> through enhanced discovery features</>,
-        <>Developed featured events system with automated notifications using <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>DynamoDB</strong>, driving community engagement</>,
-        <>Created scalable infrastructure handling <strong>5K+ daily API requests</strong> with serverless architecture and optimized database queries</>
-      ]
-    },
-    {
-      company: "Self-App (Stealth Startup)",
-      role: "Software Engineering Contractor",
-      period: "August 2024 - October 2024",
-      location: "New York City, NY (Remote)",
-      liveLink: "https://www.self-app.com/",
-      highlights: [
-        <>Migrated <strong>20+ React components</strong> to <strong>Next.js</strong> framework, achieving <strong>40% page load reduction</strong> and improved SEO performance</>,
-        <>Optimized <strong>GraphQL API</strong> integration with <strong>Django</strong> backend, resulting in <strong>25% API response improvement</strong> and reduced server load</>,
-        <>Implemented analytics tracking with <strong>Google Analytics</strong> and user behavior monitoring, increasing feature adoption by <strong>25%</strong></>,
-        <>Enhanced mental health platform serving thousands of users with improved performance and user experience</>
-      ]
-    },
+    // {
+    //   company: "VeryDesi.com",
+    //   role: "Early Engineer",
+    //   period: "October 2024 - January 2025",
+    //   location: "Portland, OR (Remote)",
+    //   liveLink: "https://verydesi.com/",
+    //   highlights: [
+    //     <>Built full-stack housing platform with <strong>Google/Apple SSO</strong> and <strong>AWS Lambda</strong> in monorepo architecture, serving <strong>300+ active users</strong> across United States</>,
+    //     <>Implemented <strong>location-based search</strong> with <strong>Leaflet.js maps</strong> and <strong>GraphQL APIs</strong>, increasing user engagement by <strong>25%</strong> through enhanced discovery features</>,
+    //     <>Developed featured events system with automated notifications using <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>DynamoDB</strong>, driving community engagement</>,
+    //     <>Created scalable infrastructure handling <strong>5K+ daily API requests</strong> with serverless architecture and optimized database queries</>
+    //   ]
+    // },
+    // {
+    //   company: "Self-App (Stealth Startup)",
+    //   role: "Software Engineering Contractor",
+    //   period: "August 2024 - October 2024",
+    //   location: "New York City, NY (Remote)",
+    //   liveLink: "https://www.self-app.com/",
+    //   highlights: [
+    //     <>Migrated <strong>20+ React components</strong> to <strong>Next.js</strong> framework, achieving <strong>40% page load reduction</strong> and improved SEO performance</>,
+    //     <>Optimized <strong>GraphQL API</strong> integration with <strong>Django</strong> backend, resulting in <strong>25% API response improvement</strong> and reduced server load</>,
+    //     <>Implemented analytics tracking with <strong>Google Analytics</strong> and user behavior monitoring, increasing feature adoption by <strong>25%</strong></>,
+    //     <>Enhanced mental health platform serving thousands of users with improved performance and user experience</>
+    //   ]
+    // },
     {
       company: "eQ Technologic",
       role: "Software Engineer",
       period: "August 2021 - August 2023", 
       location: "Pune, India",
+      liveLink:"https://www.1eq.com/",
       highlights: [
         <>Developed <strong>Spring Boot RESTful APIs</strong> for infrastructure management supporting <strong>Docker/K8s</strong>, <strong>Tomcat/JBoss</strong>, and <strong>MySQL/Oracle</strong> databases, successfully handling <strong>5K+ daily requests</strong></>,
         <>Implemented <strong>OAuth 2.0/JWT authentication</strong> with <strong>Spring Security</strong>, reducing critical security vulnerabilities by <strong>95%</strong> for multiple <strong>Fortune 500 clients</strong> including Lockheed Martin</>,
