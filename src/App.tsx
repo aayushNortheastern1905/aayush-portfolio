@@ -149,8 +149,18 @@ const Portfolio = () => {
     }
   ];
 
-  // UPDATED EXPERIENCE - Added VeryDesi and Self-App
+  // UPDATED EXPERIENCE - Added VoiceERP
   const experience = [
+    {
+      company: "VoiceERP",
+      role: "Software Engineer",
+      period: "January 2026 - Present",
+      location: "Remote",
+      liveLink:"https://voiceerp.com/",
+      highlights: [
+        <>Working on VoiceERP platform to build the future of DSPs</>
+      ]
+    },
     {
       company: "EmTech Care Labs",
       role: "Software Engineer Intern",
@@ -164,32 +174,6 @@ const Portfolio = () => {
         <>Developed CareWallet v1 mobile app using <strong>React Native</strong>, implementing core healthcare tracking features serving <strong>100+</strong> beta users with secure health monitoring capabilities</>
       ]
     },
-    // {
-    //   company: "VeryDesi.com",
-    //   role: "Early Engineer",
-    //   period: "October 2024 - January 2025",
-    //   location: "Portland, OR (Remote)",
-    //   liveLink: "https://verydesi.com/",
-    //   highlights: [
-    //     <>Built full-stack housing platform with <strong>Google/Apple SSO</strong> and <strong>AWS Lambda</strong> in monorepo architecture, serving <strong>300+ active users</strong> across United States</>,
-    //     <>Implemented <strong>location-based search</strong> with <strong>Leaflet.js maps</strong> and <strong>GraphQL APIs</strong>, increasing user engagement by <strong>25%</strong> through enhanced discovery features</>,
-    //     <>Developed featured events system with automated notifications using <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>DynamoDB</strong>, driving community engagement</>,
-    //     <>Created scalable infrastructure handling <strong>5K+ daily API requests</strong> with serverless architecture and optimized database queries</>
-    //   ]
-    // },
-    // {
-    //   company: "Self-App (Stealth Startup)",
-    //   role: "Software Engineering Contractor",
-    //   period: "August 2024 - October 2024",
-    //   location: "New York City, NY (Remote)",
-    //   liveLink: "https://www.self-app.com/",
-    //   highlights: [
-    //     <>Migrated <strong>20+ React components</strong> to <strong>Next.js</strong> framework, achieving <strong>40% page load reduction</strong> and improved SEO performance</>,
-    //     <>Optimized <strong>GraphQL API</strong> integration with <strong>Django</strong> backend, resulting in <strong>25% API response improvement</strong> and reduced server load</>,
-    //     <>Implemented analytics tracking with <strong>Google Analytics</strong> and user behavior monitoring, increasing feature adoption by <strong>25%</strong></>,
-    //     <>Enhanced mental health platform serving thousands of users with improved performance and user experience</>
-    //   ]
-    // },
     {
       company: "eQ Technologic",
       role: "Software Engineer",
@@ -371,8 +355,8 @@ const Portfolio = () => {
                   for Fortune 500 clients including Lockheed Martin.
                 </p>
                 <p>
-                  Currently completing my software engineering internship at EmTech Care Labs, building HIPAA-compliant healthcare
-                  automation systems and secure data pipelines while developing community platforms serving hundreds of users.
+                  Currently working as a Software Engineer at VoiceERP building enterprise voice-enabled solutions,
+                  while developing AI platforms and community applications serving hundreds of users.
                 </p>
                 <p>
                   Professional writer for The Huntington News and maintainer of a personal blog
@@ -415,7 +399,7 @@ const Portfolio = () => {
                 </div>
                 <div className="text-sm text-gray-300 space-y-3 leading-relaxed">
                   <div>• Building AI immigration assistant DocuPal</div>
-                  <div>• Scaling VeryDesi.com community platform</div>
+                  <div>• Developing enterprise ERP solutions at VoiceERP</div>
                   <div>• Exploring Agentic AI systems</div>
                   <div>• AWS serverless architecture</div>
                 </div>
