@@ -155,10 +155,13 @@ const Portfolio = () => {
       company: "VoiceERP",
       role: "Software Engineer",
       period: "January 2026 - Present",
-      location: "Remote",
+      location: "Cleveland, OH",
       liveLink:"https://voiceerp.com/",
       highlights: [
-        <>Working on VoiceERP platform to build the future of DSPs</>
+        <>Engineered <strong>Cortex Sync</strong> using <strong>TypeScript, AWS Lambda, and EventBridge</strong> to auto-reconcile driver and vehicle records across DSP systems hourly, eliminating <strong>100%</strong> of manual data reconciliation</>,
+        <>Designed a driver alias matching engine in <strong>TypeScript and AWS Lambda</strong> using exact, partial, and fuzzy-search to map drivers across <strong>Netradyne, Paycom, and ADP</strong> feeds, cutting onboarding from <strong>4 hours to 30 minutes</strong></>,
+        <>Built <strong>Daily Ops</strong> end-to-end using <strong>TypeScript, React, AWS Lambda, and DynamoDB</strong> covering rostering, wave time logic, driver log management, and a cross-platform <strong>React Native</strong> mobile app for iOS and Android</>,
+        <>Developed a <strong>Schedule Confirmation and General Enquiry Voice Agent</strong> using <strong>VAPI and AWS Lambda</strong>, enabling Viki to autonomously call drivers for shift confirmation and answer inbound shift queries, eliminating dispatcher involvement entirely</>
       ]
     },
     {
@@ -295,7 +298,7 @@ const Portfolio = () => {
               </h1>
               <div className="space-y-6">
                 <p className="text-xl sm:text-2xl lg:text-3xl font-light text-white max-w-4xl mx-auto leading-relaxed">
-                  Northeastern MS student graduating December 2025
+                  Founding Engineer at VoiceERP building the world's first voice AI dispatcher
                 </p>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
                   Building scalable systems, AI platforms, and community-driven applications that serve thousands of users worldwide
@@ -346,8 +349,9 @@ const Portfolio = () => {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-8 sm:mb-12 text-white">About</h2>
               <div className="space-y-6 text-gray-300 leading-relaxed text-base sm:text-lg">
                 <p>
-                  I'm a Northeastern Master's student graduating December 2025, with 3+ years of experience
-                  building scalable systems and a unique blend of technical expertise and creative storytelling.
+                  Software Engineer with 3+ years of experience building scalable systems across enterprise,
+                  healthcare, and AI domains. MS in Information Systems from Northeastern University,
+                  with a unique blend of technical depth and creative storytelling.
                 </p>
                 <p>
                   My journey began with IEEE research on voice-operated wheelchairs at COEP India,
@@ -355,13 +359,16 @@ const Portfolio = () => {
                   for Fortune 500 clients including Lockheed Martin.
                 </p>
                 <p>
-                  Currently working as a Software Engineer at VoiceERP building enterprise voice-enabled solutions,
-                  while developing AI platforms and community applications serving hundreds of users.
+                  Currently a full-time Software Engineer at <strong>VoiceERP in Cleveland, OH</strong>, where I'm
+                  engineering the data backbone of DSP operations, building Cortex Sync for hourly cross-system
+                  reconciliation, a fuzzy driver alias matching engine that slashed onboarding from 4 hours to 30 minutes,
+                  a full Daily Ops suite with React Native mobile apps, and a Voice Agent powered by VAPI that autonomously
+                  handles driver scheduling calls end-to-end.
                 </p>
                 <p>
                   Professional writer for The Huntington News and maintainer of a personal blog
                   exploring connections between Indian cinema and American storytelling, bringing
-                  global perspective to technical teams.
+                  a global perspective to technical teams.
                 </p>
               </div>
               
@@ -398,10 +405,10 @@ const Portfolio = () => {
                   <span className="text-base font-semibold text-white">Current Focus</span>
                 </div>
                 <div className="text-sm text-gray-300 space-y-3 leading-relaxed">
-                  <div>• Building AI immigration assistant DocuPal</div>
-                  <div>• Developing enterprise ERP solutions at VoiceERP</div>
+                  <div>• Full-time SWE at VoiceERP, Cleveland OH</div>
+                  <div>• Building voice AI agents with VAPI & AWS Lambda</div>
+                  <div>• Engineering DSP automation & real-time data sync</div>
                   <div>• Exploring Agentic AI systems</div>
-                  <div>• AWS serverless architecture</div>
                 </div>
               </div>
 
