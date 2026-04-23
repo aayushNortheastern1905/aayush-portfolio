@@ -14,7 +14,7 @@ export function Writing() {
               Contributing articles and insights to the university's primary news publication since September 2024.
             </p>
             <a
-              href="https://huntnewsnu.com/staff_name/aayush-sawant/"
+              href="https://huntnewsnu.com/86139/editorial/op-ed-bostons-lifeline-always-on-life-support/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 text-sm font-medium text-primary hover:text-secondary transition-colors"
