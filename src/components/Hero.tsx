@@ -2,7 +2,6 @@ import { ChevronDown } from 'lucide-react';
 import { useTypewriter } from '../hooks/useTypewriter';
 import { useCounterAnimation } from '../hooks/useCounterAnimation';
 import { metrics } from '../data/metrics';
-import { BookCall } from './BookCall';
 
 export function Hero() {
   const currentRole = useTypewriter();
@@ -59,7 +58,6 @@ export function Hero() {
             >
               Get in Touch
             </a>
-            <BookCall />
           </div>
         </div>
       </div>
