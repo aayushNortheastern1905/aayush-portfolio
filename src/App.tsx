@@ -22,8 +22,8 @@ function Portfolio() {
       <Navbar />
       <Hero />
       <About />
-      <Projects />
       <Experience />
+      <Projects />
       <Recommendations />
       <Writing />
       <Contact />
