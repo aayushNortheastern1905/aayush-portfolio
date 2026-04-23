@@ -2,6 +2,7 @@ import { ChevronDown } from 'lucide-react';
 import { useTypewriter } from '../hooks/useTypewriter';
 import { useCounterAnimation } from '../hooks/useCounterAnimation';
 import { metrics } from '../data/metrics';
+import { BookCall } from './BookCall';
 
 export function Hero() {
   const currentRole = useTypewriter();
@@ -45,7 +46,7 @@ export function Hero() {
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-12 sm:pt-16">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 pt-12 sm:pt-16">
             <a
               href="#projects"
               className="px-8 sm:px-10 py-3 sm:py-4 bg-accent text-accent-fg hover:opacity-80 transition-all duration-300 text-sm font-medium rounded-lg text-center"
@@ -58,6 +59,7 @@ export function Hero() {
             >
               Get in Touch
             </a>
+            <BookCall />
           </div>
         </div>
       </div>

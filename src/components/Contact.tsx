@@ -1,4 +1,5 @@
 import { Mail, Linkedin, Github } from 'lucide-react';
+import { BookCall } from './BookCall';
 
 const CONTACT_LINKS = [
   {
@@ -30,6 +31,11 @@ export function Contact() {
           Open to interesting conversations, collaborations, and new opportunities.
           Let's build something exceptional together.
         </p>
+
+        <div className="flex justify-center mb-12 sm:mb-16">
+          <BookCall />
+        </div>
+
         <div className="grid sm:grid-cols-3 gap-8 sm:gap-6">
           {CONTACT_LINKS.map(({ icon: Icon, label, value, href }) => (
             <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="group block">

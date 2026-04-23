@@ -54,11 +54,11 @@ export const projects: Project[] = [
     title: 'Campus Connect',
     description: (
       <>
-        <strong>Java Spring Boot</strong> backend with <strong>RESTful APIs</strong> and <strong>MySQL</strong> database for multi-tenant student housing platform serving 5 stakeholder types. Implemented <strong>JDBC</strong> connection pooling and prepared statements to handle concurrent database operations.
+        A multi-tenant student housing platform built with <strong>Java Spring Boot</strong> and <strong>MySQL</strong>, serving 5 distinct stakeholder types including students, landlords, and admins. Engineered a robust <strong>RESTful API</strong> layer with <strong>JDBC</strong> connection pooling and prepared statements to safely handle concurrent database operations at scale.
       </>
     ),
     tech: ['Java', 'Spring Boot', 'MySQL', 'JUnit', 'REST APIs', 'Git', 'JDBC'],
-    impact: '35% query time reduction, 75% test coverage with JUnit/Mockito, MVC architecture with DAO pattern',
+    impact: 'Cut query time by 35%, achieved 75% test coverage with JUnit and Mockito, clean MVC architecture with DAO pattern',
     live: 'https://github.com/aayushNortheastern1905/Application-engg-projects/tree/main/final-project-campus-connect-main/final-project-campus-connect-main',
     category: 'Student Housing Platform',
     image: '/images/campusconnect.jpg',

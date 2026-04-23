@@ -8,6 +8,7 @@ import { Recommendations } from './components/Recommendations';
 import { Writing } from './components/Writing';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { FloatingBookCall } from './components/FloatingBookCall';
 
 function Portfolio() {
   return (
@@ -28,6 +29,7 @@ function Portfolio() {
       <Writing />
       <Contact />
       <Footer />
+      <FloatingBookCall />
     </div>
   );
 }
