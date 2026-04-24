@@ -6,9 +6,9 @@ export function Recommendations() {
   if (recommendations.length === 0) return null;
 
   return (
-    <section id="recommendations" className="py-20 sm:py-28 lg:py-36 bg-surface scroll-mt-24">
+    <section id="testimonials" className="py-20 sm:py-28 lg:py-36 bg-surface scroll-mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader title="Recommendations" />
+        <SectionHeader title="Testimonials" />
         <div className="grid md:grid-cols-2 gap-8">
           {recommendations.map((rec) => (
             <div key={rec.name} className="bg-card border border-border rounded-xl p-8 hover:border-border-hover transition-all duration-300 flex flex-col justify-between space-y-6">

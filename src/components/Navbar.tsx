@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
-const NAV_ITEMS = ['About', 'Experience', 'Projects', 'Recommendations', 'Writing', 'Blog', 'Contact'];
+const NAV_ITEMS = ['About', 'Experience', 'Projects', 'Testimonials', 'Writing', 'Blog', 'Contact'];
 const BLOG_URL = 'https://aayushnortheastern1905.github.io/aayushWrites/blog.html';
 
 export function Navbar() {
