@@ -23,10 +23,10 @@ export function Hero() {
             </h1>
             <div className="space-y-6">
               <p className="text-xl sm:text-2xl lg:text-3xl font-light text-primary max-w-4xl mx-auto leading-relaxed">
-                Founding Engineer at VoiceERP building the world's first voice AI dispatcher
+                Founding engineer on the world's first voice AI dispatcher.
               </p>
               <p className="text-base sm:text-lg lg:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-                Building scalable systems, AI platforms, and community-driven applications that serve thousands of users worldwide
+                Building scalable systems, AI platforms, and community-driven applications that serve thousands of users worldwide.
               </p>
             </div>
           </div>

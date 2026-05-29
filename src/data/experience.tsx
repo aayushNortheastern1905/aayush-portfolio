@@ -13,8 +13,8 @@ export interface Experience {
 export const experience: Experience[] = [
   {
     company: 'VoiceERP',
-    role: 'Founding Software Engineer',
-    period: 'January 2026 - Present',
+    role: 'Software Engineer',
+    period: 'January 2026 - May 2026',
     location: 'Cleveland, OH',
     domain: 'voiceerp.com',
     liveLink: 'https://voiceerp.com/',
