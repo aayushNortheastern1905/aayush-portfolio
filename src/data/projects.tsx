@@ -25,19 +25,6 @@ export const projects: Project[] = [
     image: '/images/docupal.jpeg',
   },
   {
-    title: 'SonomaticAI',
-    description: (
-      <>
-        AI-powered music creation platform with revolutionary interface. Built personalization engine using <strong>PyTorch</strong>, <strong>TensorFlow</strong>, <strong>NLP</strong>, and <strong>GAN</strong> models.
-      </>
-    ),
-    tech: ['React', 'TypeScript', 'PyTorch', 'TensorFlow', 'AWS S3', 'NLP', 'GANs'],
-    impact: '40% user engagement increase, 30% development speed boost, optimized music storage',
-    live: 'https://www.sonomatic.ai/',
-    category: 'GenAI Platform for Music Creation',
-    image: '/images/sonomaticAI.jpg',
-  },
-  {
     title: 'House of Kicks',
     description: (
       <>
