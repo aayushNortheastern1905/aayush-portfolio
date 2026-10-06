@@ -6,7 +6,7 @@ export function Recommendations() {
   if (recommendations.length === 0) return null;
 
   return (
-    <section id="testimonials" className="mb-16 animate-fade-in-up scroll-mt-8">
+    <section id="testimonials" className="mb-16 animate-fade-in-up scroll-mt-16">
       <SectionHeading title="testimonials" />
       <div className="space-y-8">
         {recommendations.map((rec) => (

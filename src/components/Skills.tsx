@@ -3,7 +3,7 @@ import { SectionHeading } from './SectionHeading';
 
 export function Skills() {
   return (
-    <section id="skills" className="mb-16 animate-fade-in-up scroll-mt-8">
+    <section id="skills" className="mb-16 animate-fade-in-up scroll-mt-16">
       <SectionHeading title="skills" />
       <div className="space-y-3">
         {skills.map((group) => (

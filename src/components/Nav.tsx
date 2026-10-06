@@ -2,7 +2,7 @@ import { navItems } from '../data/site';
 
 export function Nav() {
   return (
-    <nav className="flex items-center justify-between mb-12 text-sm">
+    <nav className="sticky top-0 z-40 bg-[#111] -mx-4 px-4 py-4 mb-8 flex items-center justify-between text-sm">
       <div className="flex space-x-4">
         {navItems.map((item) => (
           <a

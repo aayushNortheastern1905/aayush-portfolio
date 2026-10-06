@@ -3,7 +3,7 @@ import { SectionHeading } from './SectionHeading';
 
 export function Projects() {
   return (
-    <section id="projects" className="mb-16 scroll-mt-8">
+    <section id="projects" className="mb-16 scroll-mt-16">
       <SectionHeading title="projects" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {projects.map((project) => (

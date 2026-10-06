@@ -32,6 +32,7 @@ export const navItems: NavItem[] = [
   { key: 'h', label: 'home', target: 'home' },
   { key: 'w', label: 'work', target: 'work' },
   { key: 'p', label: 'projects', target: 'projects' },
+  { key: 'r', label: 'writing', target: 'writing' },
   { key: 'b', label: 'blog', href: BLOG_URL },
 ];
 

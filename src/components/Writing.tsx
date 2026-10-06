@@ -3,7 +3,7 @@ import { SectionHeading } from './SectionHeading';
 
 export function Writing() {
   return (
-    <section id="writing" className="mb-16 animate-fade-in-up scroll-mt-8">
+    <section id="writing" className="mb-16 animate-fade-in-up scroll-mt-16">
       <SectionHeading title="writing" />
       <div className="flex flex-col gap-0.5">
         {writing.map((item) => (

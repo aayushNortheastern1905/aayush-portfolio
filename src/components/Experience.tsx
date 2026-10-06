@@ -14,7 +14,7 @@ const ROW_CLASS =
 
 export function Experience() {
   return (
-    <section id="work" className="animate-fade-in-up mb-16 scroll-mt-8">
+    <section id="work" className="animate-fade-in-up mb-16 scroll-mt-16">
       <SectionHeading title="work" />
       <div className="mb-10">
         {experience.map((job) => {

@@ -10,7 +10,7 @@ function formatYears(period: string): string {
 
 export function Education() {
   return (
-    <section id="education" className="mb-16 animate-fade-in-up scroll-mt-8">
+    <section id="education" className="mb-16 animate-fade-in-up scroll-mt-16">
       <SectionHeading title="education" />
       {education.map((edu) => (
         <div key={edu.institution} className="flex gap-4 mb-8 group">

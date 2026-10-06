@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <div className="antialiased min-h-screen font-mono">
-      <div className="max-w-4xl mx-auto px-4 pt-8 pb-32">
+      <div className="max-w-4xl mx-auto px-4 pt-4 pb-32">
         <Nav />
         <Header />
         <Projects />
