@@ -1,43 +1,35 @@
-import { Linkedin } from 'lucide-react';
 import { recommendations } from '../data/recommendations';
-import { SectionHeader } from './SectionHeader';
+import { Avatar } from './Avatar';
+import { SectionHeading } from './SectionHeading';
 
 export function Recommendations() {
   if (recommendations.length === 0) return null;
 
   return (
-    <section id="testimonials" className="py-20 sm:py-28 lg:py-36 bg-surface scroll-mt-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader title="Testimonials" />
-        <div className="grid md:grid-cols-2 gap-8">
-          {recommendations.map((rec) => (
-            <div key={rec.name} className="bg-card border border-border rounded-xl p-8 hover:border-border-hover transition-all duration-300 flex flex-col justify-between space-y-6">
-              <p className="text-secondary text-base leading-relaxed">"{rec.text}"</p>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <img
-                    src={rec.photo}
-                    alt={rec.name}
-                    className="w-12 h-12 rounded-full object-cover border border-border"
-                  />
-                  <div>
-                    <div className="text-primary font-medium text-sm">{rec.name}</div>
-                    <div className="text-muted text-xs">{rec.title}</div>
-                    <div className="text-muted text-xs">{rec.company}</div>
-                  </div>
-                </div>
+    <section id="testimonials" className="mb-16 animate-fade-in-up scroll-mt-8">
+      <SectionHeading title="testimonials" />
+      <div className="space-y-8">
+        {recommendations.map((rec) => (
+          <blockquote key={rec.name} className="border-l border-accent/50 pl-4">
+            <p className="text-[13px] text-gray-400 leading-relaxed">"{rec.text}"</p>
+            <footer className="flex items-center gap-3 mt-4">
+              <Avatar src={rec.photo} name={rec.name} size={40} />
+              <div className="text-[13px] font-mono">
                 <a
                   href={rec.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted hover:text-primary transition-colors"
+                  className="text-gray-200 hover:text-accent transition-colors duration-200"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  {rec.name.toLowerCase()}
                 </a>
+                <div className="text-gray-500">
+                  {rec.title.toLowerCase()} at {rec.company.toLowerCase()}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            </footer>
+          </blockquote>
+        ))}
       </div>
     </section>
   );

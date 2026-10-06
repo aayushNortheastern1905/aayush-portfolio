@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const LOCAL_LOGOS: Record<string, string> = {
+  'askabhi':            '/images/askabhi.png',
   'voiceerp.com':       '/images/voiceerp.jpeg',
   'emtechcarelabs.com': '/images/emtech.jpeg',
   'verydesi.com':       '/images/verydesi.jpeg',
@@ -12,44 +13,40 @@ const LOCAL_LOGOS: Record<string, string> = {
 interface CompanyLogoProps {
   domain: string;
   name: string;
-  size?: number;
+  size: number;
+  className?: string;
 }
 
-export function CompanyLogo({ domain, name, size = 48 }: CompanyLogoProps) {
+export function CompanyLogo({ domain, name, size, className = '' }: CompanyLogoProps) {
   const [failed, setFailed] = useState(false);
-
-  const initials = name
-    .split(' ')
-    .slice(0, 2)
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase();
-
   const src = LOCAL_LOGOS[domain];
 
   if (!src || failed) {
+    const initials = name
+      .split(' ')
+      .slice(0, 2)
+      .map((word) => word[0])
+      .join('')
+      .toLowerCase();
+
     return (
-      <div
+      <span
         style={{ width: size, height: size }}
-        className="rounded-lg bg-card border border-border flex items-center justify-center text-primary font-semibold text-sm flex-shrink-0"
+        className={`flex items-center justify-center bg-white/5 text-gray-400 text-[10px] ${className}`}
       >
         {initials}
-      </div>
+      </span>
     );
   }
 
   return (
-    <div
-      style={{ width: size, height: size }}
-      className="rounded-lg bg-white flex items-center justify-center flex-shrink-0 overflow-hidden"
-    >
-      <img
-        src={src}
-        alt={name}
-        style={{ width: size - 8, height: size - 8 }}
-        className="object-contain"
-        onError={() => setFailed(true)}
-      />
-    </div>
+    <img
+      src={src}
+      alt={name}
+      width={size}
+      height={size}
+      className={className}
+      onError={() => setFailed(true)}
+    />
   );
 }

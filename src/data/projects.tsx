@@ -5,12 +5,34 @@ export interface Project {
   description: ReactNode;
   tech: string[];
   impact: string;
-  live: string;
+  live?: string;
   category: string;
-  image: string;
+  image?: string;
 }
 
 export const projects: Project[] = [
+  {
+    title: 'Sage',
+    description: (
+      <>
+        Inbound qualification <strong>voice agent</strong> for lending leads. Live and bilingual, with a <strong>deterministic engine</strong>, not the model, deciding every approval. Blocks tool-call ordering races and redacts SSNs from transcripts.
+      </>
+    ),
+    tech: ['TypeScript', 'Node.js', 'Express', 'VAPI', 'Twilio', 'GPT-4o'],
+    impact: 'Deterministic approvals, no decision before the credit check returns, SSN-safe logs',
+    category: 'Voice AI Agent',
+  },
+  {
+    title: 'Sarvam',
+    description: (
+      <>
+        Autonomous <strong>coding agent</strong> on a Tree-sitter code index, verifying patches through 3 checks in a Docker sandbox. Prompt injection defense (0 of 5 planted secrets leaked), crash-resumable orchestrator and hard per-task budgets.
+      </>
+    ),
+    tech: ['Python', 'FastAPI', 'Docker', 'Tree-sitter', 'SQLite'],
+    impact: 'Crash-resumable runs, bounded repair loop, no double charged runs',
+    category: 'Autonomous Coding Agent',
+  },
   {
     title: 'DocuPal',
     description: (
@@ -37,17 +59,16 @@ export const projects: Project[] = [
     category: 'E-Commerce Platform',
     image: '/images/houseofkicks.jpg',
   },
-  {
-    title: 'Campus Connect',
-    description: (
-      <>
-        A multi-tenant student housing platform built with <strong>Java Spring Boot</strong> and <strong>MySQL</strong>, serving 5 distinct stakeholder types including students, landlords, and admins. Engineered a robust <strong>RESTful API</strong> layer with <strong>JDBC</strong> connection pooling and prepared statements to safely handle concurrent database operations at scale.
-      </>
-    ),
-    tech: ['Java', 'Spring Boot', 'MySQL', 'JUnit', 'REST APIs', 'Git', 'JDBC'],
-    impact: 'Cut query time by 35%, achieved 75% test coverage with JUnit and Mockito, clean MVC architecture with DAO pattern',
-    live: 'https://github.com/aayushNortheastern1905/Application-engg-projects/tree/main/final-project-campus-connect-main/final-project-campus-connect-main',
-    category: 'Student Housing Platform',
-    image: '/images/campusconnect.jpg',
-  },
 ];
+
+export const techColors: Record<string, string> = {
+  'React.js': '#61DAFB',
+  TypeScript: '#3178C6',
+  'Node.js': '#5FA04E',
+  Python: '#3572A5',
+  Java: '#B07219',
+  'Spring Boot': '#6DB33F',
+  'AWS SAM': '#FF9900',
+};
+
+export const DEFAULT_TECH_COLOR = '#555555';

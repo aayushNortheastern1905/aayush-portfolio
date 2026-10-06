@@ -12,13 +12,14 @@ export function BookCall() {
 
   return (
     <button
+      aria-label="book a call"
       data-cal-namespace="30min"
       data-cal-link="aayush-sawant-7002/30min"
       data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-      className="inline-flex items-center space-x-2 px-8 sm:px-10 py-3 sm:py-4 bg-accent text-accent-fg hover:opacity-80 transition-all duration-300 text-sm font-medium rounded-lg"
+      className="flex items-center gap-1.5 p-1.5 rounded-md hover:bg-neutral-800/80 text-gray-500 hover:text-gray-300 transition-all font-sans"
     >
-      <CalendarDays className="w-4 h-4" />
-      <span>Schedule a Call</span>
+      <CalendarDays className="w-5 h-5" />
+      <span className="text-xs font-semibold tracking-wide">Book a call</span>
     </button>
   );
 }
