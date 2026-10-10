@@ -18,10 +18,10 @@ export const experience: Experience[] = [
     location: 'Jacksonville, FL',
     domain: 'askabhi',
     highlights: [
-      <>Built an <strong>AI lead scoring</strong> service ranking FBO fuel and hangar-space leads by conversion likelihood, focusing reps on the best prospects</>,
-      <>Engineered an <strong>LLM narration layer</strong> turning raw lead scores into plain-English reasoning, so reps see why a lead ranked where it did</>,
-      <>Automated lead report generation end to end, replacing manual write-ups with generated summaries reps can act on directly</>,
-      <>Built a <strong>Python, Playwright and Browserbase</strong> pipeline structuring aviation data, with an <strong>FAA sync cron</strong> keeping records current</>,
+      <>Built an <strong>AI lead generation</strong> service for Sky Harbour Aviation, ranking fuel and hangar leads with an <strong>LLM layer</strong> explaining each score</>,
+      <>Built a <strong>Python, Playwright and Browserbase</strong> pipeline syncing <strong>FAA and JetNet</strong> aviation data on a cron, keeping lead records current</>,
+      <>Built <strong>Ask ABHI Train</strong>, a <strong>Chrome extension</strong> turning SAP Fiori recordings into narrated guides via <strong>Gemini and ElevenLabs</strong></>,
+      <>Built a <strong>C# .NET 8</strong> SAP GUI recorder on the Scripting API, with <strong>Keycloak PKCE</strong> login and <strong>4 checks</strong> blocking production SAP</>,
     ],
   },
   {
