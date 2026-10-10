@@ -20,6 +20,7 @@ export const projects: Project[] = [
     ),
     tech: ['TypeScript', 'Node.js', 'Express', 'VAPI', 'Twilio', 'GPT-4o'],
     impact: 'Deterministic approvals, no decision before the credit check returns, SSN-safe logs',
+    live: 'https://github.com/aayushNortheastern1905/symple-agent',
     category: 'Voice AI Agent',
   },
   {
@@ -31,6 +32,7 @@ export const projects: Project[] = [
     ),
     tech: ['Python', 'FastAPI', 'Docker', 'Tree-sitter', 'SQLite'],
     impact: 'Crash-resumable runs, bounded repair loop, no double charged runs',
+    live: 'https://github.com/aayushNortheastern1905/sarvam-code-agent',
     category: 'Autonomous Coding Agent',
   },
   {
@@ -42,7 +44,7 @@ export const projects: Project[] = [
     ),
     tech: ['React.js', 'TypeScript', 'AWS SAM', 'Auth0', 'Gemini AI', 'DynamoDB'],
     impact: 'Automated visa documentation with AI-powered form parsing and secure authentication',
-    live: 'https://docupal-one.vercel.app/',
+    live: 'https://github.com/aayushNortheastern1905/immigration-ai-agent',
     category: 'AI Immigration Platform',
     image: '/images/docupal.jpeg',
   },
